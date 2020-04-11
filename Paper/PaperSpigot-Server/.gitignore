@@ -36,3 +36,7 @@ dependency-reduced-pom.xml
 
 /src/main/resources/achievement
 /src/main/resources/lang
+
+# ScandiCraft
+scandicraft_server/*
+!scandicraft_server/start_server.cmd
