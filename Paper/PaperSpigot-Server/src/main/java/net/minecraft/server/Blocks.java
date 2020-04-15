@@ -401,7 +401,19 @@ public class Blocks {
   public static final BlockStepAbstract DOUBLE_STONE_SLAB2 = (BlockStepAbstract)get("double_stone_slab2");
   
   public static final BlockStepAbstract STONE_SLAB2 = (BlockStepAbstract)get("stone_slab2");
-  
+
+  //=========================================================================================================================
+
+  //ScandiCraft : BriceFab
+  public static final Block SCANDIUM_ORE = get("scandium_ore");
+  public static final Block SCANDIUM_BLOCK = get("scandium_block");
+  public static final Block PYRITE_ORE = get("pyrite_ore");
+  public static final Block PYRITE_BLOCK = get("pyrite_block");
+  public static final Block LAZURITE_ORE = get("lazurite_ore");
+  public static final Block LAZURITE_BLOCK = get("lazurite_block");
+
+  //=========================================================================================================================
+
   private static Block get(String paramString) {
     return Block.REGISTRY.get(new MinecraftKey(paramString));
   }

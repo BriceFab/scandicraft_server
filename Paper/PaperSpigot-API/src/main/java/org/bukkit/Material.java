@@ -455,6 +455,17 @@ public enum Material {
     RECORD_10(2265, 1),
     RECORD_11(2266, 1),
     RECORD_12(2267, 1),
+    //==============================================================================
+
+    //ScandiCraft: BriceFab
+    SCANDIUM_ORE(2500),
+    SCANDIUM_BLOCK(2501),
+    PYRITE_ORE(2502),
+    PYRITE_BLOCK(2503),
+    LAZURITE_ORE(2504),
+    LAZURITE_BLOCK(2505),
+
+    //==============================================================================
     ;
 
     private final int id;
@@ -850,6 +861,14 @@ public enum Material {
             case JUNGLE_DOOR:
             case ACACIA_DOOR:
             case DARK_OAK_DOOR:
+            //========================================
+            case SCANDIUM_ORE:
+            case SCANDIUM_BLOCK:
+            case PYRITE_ORE:
+            case PYRITE_BLOCK:
+            case LAZURITE_ORE:
+            case LAZURITE_BLOCK:
+            //========================================
                 return true;
             default:
                 return false;
@@ -1118,6 +1137,14 @@ public enum Material {
             case PRISMARINE:
             case RED_SANDSTONE:
             case DOUBLE_STONE_SLAB2:
+            //===================================
+            case SCANDIUM_ORE:
+            case SCANDIUM_BLOCK:
+            case PYRITE_ORE:
+            case PYRITE_BLOCK:
+            case LAZURITE_ORE:
+            case LAZURITE_BLOCK:
+            //===================================
                 return true;
             default:
                 return false;

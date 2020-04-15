@@ -936,6 +936,22 @@ public class Block {
         a(195, "jungle_door", (new BlockDoor(Material.WOOD)).c(3.0F).a(Block.f).c("doorJungle").K());
         a(196, "acacia_door", (new BlockDoor(Material.WOOD)).c(3.0F).a(Block.f).c("doorAcacia").K());
         a(197, "dark_oak_door", (new BlockDoor(Material.WOOD)).c(3.0F).a(Block.f).c("doorDarkOak").K());
+
+        //========================================================================================================================================================================
+
+        // ScandiCraft : BriceFab
+        // Start ID : 2500
+
+        //a = registerBlock; c = setHardness; b = setResistance ; a = setStepSound; c = setUnlocalizedName; a = setCreativeTab
+        a(2500, "scandium_ore", (new BlockOre()).c(3.0F).b(5.0F).a(Block.i).c("oreScandium"));
+        a(2501, "scandium_block", (new Block(Material.ORE, MaterialMapColor.G)).c(5.0F).b(10.0F).a(Block.j).c("blockScandium").a(CreativeModeTab.b));
+        a(2502, "pyrite_ore", (new BlockOre()).c(3.0F).b(5.0F).a(Block.i).c("orePyrite"));
+        a(2503, "pyrite_block", (new Block(Material.ORE, MaterialMapColor.G)).c(5.0F).b(10.0F).a(Block.j).c("blockPyrite").a(CreativeModeTab.b));
+        a(2504, "lazurite_ore", (new BlockOre()).c(3.0F).b(5.0F).a(Block.i).c("oreLazurite"));
+        a(2505, "lazurite_block", (new Block(Material.ORE, MaterialMapColor.G)).b(5.0F).b(10.0F).a(Block.j).c("blockLazurite").a(CreativeModeTab.b));
+
+        //========================================================================================================================================================================
+
         Block.REGISTRY.a();
         Iterator iterator = Block.REGISTRY.iterator();
 
