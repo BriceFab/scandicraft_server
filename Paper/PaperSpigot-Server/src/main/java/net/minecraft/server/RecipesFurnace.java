@@ -20,6 +20,14 @@ public class RecipesFurnace {
         this.registerRecipe(Blocks.IRON_ORE, new ItemStack(Items.IRON_INGOT), 0.7F);
         this.registerRecipe(Blocks.GOLD_ORE, new ItemStack(Items.GOLD_INGOT), 1.0F);
         this.registerRecipe(Blocks.DIAMOND_ORE, new ItemStack(Items.DIAMOND), 1.0F);
+
+        //================================================================================
+        //ScandiCraft: BriceFab FurnaceRecipes
+        this.registerRecipe(Blocks.SCANDIUM_ORE, new ItemStack(Items.SCANDIUM), 1.0F);
+        this.registerRecipe(Blocks.PYRITE_ORE, new ItemStack(Items.PYRITE), 1.0F);
+        this.registerRecipe(Blocks.LAZURITE_ORE, new ItemStack(Items.LAZURITE), 1.0F);
+        //================================================================================
+
         this.registerRecipe(Blocks.SAND, new ItemStack(Blocks.GLASS), 0.1F);
         this.a(Items.PORKCHOP, new ItemStack(Items.COOKED_PORKCHOP), 0.35F);
         this.a(Items.BEEF, new ItemStack(Items.COOKED_BEEF), 0.35F);

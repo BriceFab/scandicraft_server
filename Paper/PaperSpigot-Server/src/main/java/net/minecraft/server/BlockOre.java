@@ -14,7 +14,16 @@ public class BlockOre extends Block {
     }
 
     public Item getDropType(IBlockData iblockdata, Random random, int i) {
-        return this == Blocks.COAL_ORE ? Items.COAL : (this == Blocks.DIAMOND_ORE ? Items.DIAMOND : (this == Blocks.LAPIS_ORE ? Items.DYE : (this == Blocks.EMERALD_ORE ? Items.EMERALD : (this == Blocks.QUARTZ_ORE ? Items.QUARTZ : Item.getItemOf(this)))));
+        return this == Blocks.COAL_ORE ? Items.COAL :
+                (this == Blocks.DIAMOND_ORE ? Items.DIAMOND :
+                        (this == Blocks.LAPIS_ORE ? Items.DYE :
+                                (this == Blocks.EMERALD_ORE ? Items.EMERALD :
+                                        (this == Blocks.QUARTZ_ORE ? Items.QUARTZ :
+                                                //ScandiCraft: BriceFab dop minerais
+                                                (this == Blocks.SCANDIUM_ORE ? Items.SCANDIUM :
+                                                        (this == Blocks.PYRITE_ORE ? Items.PYRITE :
+                                                                (this == Blocks.LAZURITE_ORE ? Items.LAZURITE:
+                                                                    Item.getItemOf(this))))))));
     }
 
     public int a(Random random) {
