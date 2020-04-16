@@ -1,5 +1,7 @@
 package net.minecraft.server;
 
+import net.scandicraft.items.*;
+
 public class Items {
   static {
     if (!DispenserRegistry.a())
@@ -379,6 +381,49 @@ public class Items {
   public static final Item PRISMARINE_CRYSTALS = get("prismarine_crystals");
   
   public static final Item BANNER = get("banner");
+
+  //==================================================================================
+
+  //ScandiCraft ITEMS
+  public static final Item SCANDIUM = get("scandium");
+  public static final Item PYRITE = get("pyrite");
+  public static final Item LAZURITE = get("lazurite");
+  public static final Item SCANDIUM_SWORD = get("scandium_sword");
+  public static final Item SCANDIUM_SHOVEL = get("scandium_shovel");
+  public static final Item SCANDIUM_PICKAXE = get("scandium_pickaxe");
+  public static final Item SCANDIUM_AXE = get("scandium_axe");
+  public static final Item SCANDIUM_HOE = get("scandium_hoe");
+  public static final Item PYRITE_SWORD = get("pyrite_sword");
+  public static final Item PYRITE_SHOVEL = get("pyrite_shovel");
+  public static final Item PYRITE_PICKAXE = get("pyrite_pickaxe");
+  public static final Item PYRITE_AXE = get("pyrite_axe");
+  public static final Item PYRITE_HOE = get("pyrite_hoe");
+  public static final Item LAZURITE_SWORD = get("lazurite_sword");
+  public static final Item LAZURITE_SHOVEL = get("lazurite_shovel");
+  public static final Item LAZURITE_PICKAXE = get("lazurite_pickaxe");
+  public static final Item LAZURITE_AXE = get("lazurite_axe");
+  public static final Item LAZURITE_HOE = get("lazurite_hoe");
+  public static final ItemArmor SCANDIUM_HELMET = (ItemArmor) get("scandium_helmet");
+  public static final ItemArmor SCANDIUM_CHESTPLATE = (ItemArmor) get("scandium_chestplate");
+  public static final ItemArmor SCANDIUM_LEGGINGS = (ItemArmor) get("scandium_leggings");
+  public static final ItemArmor SCANDIUM_BOOTS = (ItemArmor) get("scandium_boots");
+  public static final ItemArmor PYRITE_HELMET = (ItemArmor) get("pyrite_helmet");
+  public static final ItemArmor PYRITE_CHESTPLATE = (ItemArmor) get("pyrite_chestplate");
+  public static final ItemArmor PYRITE_LEGGINGS = (ItemArmor) get("pyrite_leggings");
+  public static final ItemArmor PYRITE_BOOTS = (ItemArmor) get("pyrite_boots");
+  public static final ItemArmor LAZURITE_HELMET = (ItemArmor) get("lazurite_helmet");
+  public static final ItemArmor LAZURITE_CHESTPLATE = (ItemArmor) get("lazurite_chestplate");
+  public static final ItemArmor LAZURITE_LEGGINGS = (ItemArmor) get("lazurite_leggings");
+  public static final ItemArmor LAZURITE_BOOTS = (ItemArmor) get("lazurite_boots");
+  public static final ItemArmor BLOODY_HELMET = (ItemArmor) get("bloody_helmet");
+  public static final ItemArmor BLOODY_CHESTPLATE = (ItemArmor) get("bloody_chestplate");
+  public static final ItemArmor BLODDY_LEGGINGS = (ItemArmor) get("bloody_leggings");
+  public static final ItemArmor BLOODY_BOOTS = (ItemArmor) get("bloody_boots");
+  public static final Item BLOODY_SWORD = get("bloody_sword");
+  // public static final ItemSpawnScepter scepter_creeper = (ItemSpawnScepter) get("scepter_creeper");
+  public static final ItemRepairScepter SCEPTER_REPAIR = (ItemRepairScepter) get("scepter_repair");
+
+  //==================================================================================
   
   private static Item get(String paramString) {
     return Item.REGISTRY.get(new MinecraftKey(paramString));

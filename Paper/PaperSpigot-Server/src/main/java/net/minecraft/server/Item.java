@@ -4,6 +4,7 @@ import com.google.common.base.Function;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
+import net.scandicraft.items.ItemRepairScepter;
 
 import javax.annotation.Nullable;
 import java.util.Map;
@@ -49,8 +50,16 @@ public class Item {
         WOOD(0, 59, 2.0F, 0.0F, 15),
         STONE(1, 131, 4.0F, 1.0F, 5),
         IRON(2, 250, 6.0F, 2.0F, 14),
-        EMERALD(3, 1561, 8.0F, 3.0F, 10),
-        GOLD(0, 32, 12.0F, 0.0F, 22);
+        EMERALD(3, 1561, 8.0F, 3.0F, 10),   //= AUSSI Diamond
+        GOLD(0, 32, 12.0F, 0.0F, 22),
+
+        //==========================================================================================
+        //ScandiCraft
+        SCANDIUM(3, 2500, 14.0F, 6.0F, 10),
+        PYRITE(3, 2000, 13.0F, 5.0F, 10),
+        LAZURITE(3, 1750, 12.0F, 4.0F, 10),
+        BLOODY(3, 3500, 15.0F, 8.0F, 10);
+        //==========================================================================================
 
         private final int f;
 
@@ -840,6 +849,49 @@ public class Item {
         a(2265, "record_ward", (new ItemRecord("ward")).c("record"));
         a(2266, "record_11", (new ItemRecord("11")).c("record"));
         a(2267, "record_wait", (new ItemRecord("wait")).c("record"));
+
+        //===========================================================================================
+
+        //ScandiCraft: BriceFab ITEMS
+        a(3500, "scandium", (new Item()).c("scandium").a(CreativeModeTab.l));
+        a(3501, "pyrite", (new Item()).c("pyrite").a(CreativeModeTab.l));
+        a(3502, "lazurite", (new Item()).c("lazurite").a(CreativeModeTab.l));
+        a(3503, "scandium_sword", (new ItemSword(EnumToolMaterial.SCANDIUM)).c("swordScandium"));
+        a(3504, "scandium_shovel", (new ItemSpade(EnumToolMaterial.SCANDIUM)).c("shovelScandium"));
+        a(3505, "scandium_pickaxe", (new ItemPickaxe(EnumToolMaterial.SCANDIUM)).c("pickaxeScandium"));
+        a(3506, "scandium_axe", (new ItemAxe(EnumToolMaterial.SCANDIUM)).c("hatchetScandium"));
+        a(3507, "scandium_hoe", (new ItemHoe(EnumToolMaterial.SCANDIUM)).c("hoeScandium"));
+        a(3508, "pyrite_sword", (new ItemSword(EnumToolMaterial.PYRITE)).c("swordpyrite"));
+        a(3509, "pyrite_shovel", (new ItemSpade(EnumToolMaterial.PYRITE)).c("shovelpyrite"));
+        a(3510, "pyrite_pickaxe", (new ItemPickaxe(EnumToolMaterial.PYRITE)).c("pickaxepyrite"));
+        a(3511, "pyrite_axe", (new ItemAxe(EnumToolMaterial.PYRITE)).c("hatchetpyrite"));
+        a(3512, "pyrite_hoe", (new ItemHoe(EnumToolMaterial.PYRITE)).c("hoepyrite"));
+        a(3513, "lazurite_sword", (new ItemSword(EnumToolMaterial.LAZURITE)).c("swordLazurite"));
+        a(3514, "lazurite_shovel", (new ItemSpade(EnumToolMaterial.LAZURITE)).c("shovelLazurite"));
+        a(3515, "lazurite_pickaxe", (new ItemPickaxe(EnumToolMaterial.LAZURITE)).c("pickaxeLazurite"));
+        a(3516, "lazurite_axe", (new ItemAxe(EnumToolMaterial.LAZURITE)).c("hatchetLazurite"));
+        a(3517, "lazurite_hoe", (new ItemHoe(EnumToolMaterial.LAZURITE)).c("hoeLazurite"));
+        // a(3518, "pyrite_pie", (new ItemAppleGold(4, 1.2F, false)).setAlwaysEdible().setPotionEffect(Potion.nightVision.id, 120, 1, 1.0F).c("piePyrite"));
+        a(3519, "scandium_helmet", (new ItemArmor(ItemArmor.EnumArmorMaterial.SCANDIUM, 7, 0)).c("helmetScandium"));
+        a(3520, "scandium_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.SCANDIUM, 7, 1)).c("chestplateScandium"));
+        a(3521, "scandium_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.SCANDIUM, 7, 2)).c("leggingsScandium"));
+        a(3522, "scandium_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.SCANDIUM, 7, 3)).c("bootsScandium"));
+        a(3523, "pyrite_helmet", (new ItemArmor(ItemArmor.EnumArmorMaterial.PYRITE, 8, 0)).c("helmetPyrite"));
+        a(3524, "pyrite_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.PYRITE, 8, 1)).c("chestplatePyrite"));
+        a(3525, "pyrite_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.PYRITE, 8, 2)).c("leggingsPyrite"));
+        a(3526, "pyrite_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.PYRITE, 8, 3)).c("bootsPyrite"));
+        a(3527, "lazurite_helmet", (new ItemArmor(ItemArmor.EnumArmorMaterial.LAZURITE, 9, 0)).c("helmetLazurite"));
+        a(3528, "lazurite_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.LAZURITE, 9, 1)).c("chestplateLazurite"));
+        a(3529, "lazurite_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.LAZURITE, 9, 2)).c("leggingsLazurite"));
+        a(3530, "lazurite_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.LAZURITE, 9, 3)).c("bootsLazurite"));
+        a(3531, "bloody_sword", (new ItemSword(EnumToolMaterial.BLOODY)).c("swordBloody"));
+        a(3532, "bloody_helmet", (new ItemArmor(ItemArmor.EnumArmorMaterial.BLOODY, 6, 0)).c("helmetBloody"));
+        a(3533, "bloody_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.BLOODY, 6, 1)).c("chestplateBloody"));
+        a(3534, "bloody_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.BLOODY, 6, 2)).c("leggingsBloody"));
+        a(3535, "bloody_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.BLOODY, 6, 3)).c("bootsBloody"));
+        // a(3536,"scepter_creeper", (new ItemSpawnScepter(3).c("scepterCreeper")));
+        // a(3537, "scepter_repair", (new ItemRepairScepter().c("scepterRepair")));
+        //===========================================================================================
     }
 
     private static void c(Block paramBlock) {
