@@ -4,7 +4,7 @@ import com.google.common.base.Function;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
-import net.scandicraft.items.ItemRepairScepter;
+import net.scandicraft.items.*;
 
 import javax.annotation.Nullable;
 import java.util.Map;
@@ -889,7 +889,7 @@ public class Item {
         a(3533, "bloody_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.BLOODY, 6, 1)).c("chestplateBloody"));
         a(3534, "bloody_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.BLOODY, 6, 2)).c("leggingsBloody"));
         a(3535, "bloody_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.BLOODY, 6, 3)).c("bootsBloody"));
-        // a(3536,"scepter_creeper", (new ItemSpawnScepter(3).c("scepterCreeper")));
+        a(3536,"scepter_creeper", (new ItemSpawnScepter(3).c("scepterCreeper")));
         a(3537, "scepter_repair", (new ItemRepairScepter().c("scepterRepair")));
         //===========================================================================================
     }

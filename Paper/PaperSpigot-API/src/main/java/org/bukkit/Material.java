@@ -508,8 +508,8 @@ public enum Material {
     BLOODY_LEGGINGS(3534, 1, 495),
     BLOODY_BOOTS(3535, 1, 429),
 
-    // SCEPTER_CREEPER(3536),
-    SCEPTER_REPAIR(3537, 1, 100),   //TODO correct dura
+    SCEPTER_CREEPER(3536, 1, 2),
+    SCEPTER_REPAIR(3537, 1),
     //==============================================================================
     ;
 
