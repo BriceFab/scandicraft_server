@@ -890,7 +890,7 @@ public class Item {
         a(3534, "bloody_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.BLOODY, 6, 2)).c("leggingsBloody"));
         a(3535, "bloody_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.BLOODY, 6, 3)).c("bootsBloody"));
         // a(3536,"scepter_creeper", (new ItemSpawnScepter(3).c("scepterCreeper")));
-        // a(3537, "scepter_repair", (new ItemRepairScepter().c("scepterRepair")));
+        a(3537, "scepter_repair", (new ItemRepairScepter().c("scepterRepair")));
         //===========================================================================================
     }
 
