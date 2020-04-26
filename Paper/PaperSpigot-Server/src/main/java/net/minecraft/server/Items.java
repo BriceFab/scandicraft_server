@@ -417,7 +417,7 @@ public class Items {
   public static final ItemArmor LAZURITE_BOOTS = (ItemArmor) get("lazurite_boots");
   public static final ItemArmor BLOODY_HELMET = (ItemArmor) get("bloody_helmet");
   public static final ItemArmor BLOODY_CHESTPLATE = (ItemArmor) get("bloody_chestplate");
-  public static final ItemArmor BLODDY_LEGGINGS = (ItemArmor) get("bloody_leggings");
+  public static final ItemArmor BLOODY_LEGGINGS = (ItemArmor) get("bloody_leggings");
   public static final ItemArmor BLOODY_BOOTS = (ItemArmor) get("bloody_boots");
   public static final Item BLOODY_SWORD = get("bloody_sword");
   // public static final ItemSpawnScepter scepter_creeper = (ItemSpawnScepter) get("scepter_creeper");
