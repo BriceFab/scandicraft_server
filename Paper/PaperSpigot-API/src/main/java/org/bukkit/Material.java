@@ -458,7 +458,6 @@ public enum Material {
     //==============================================================================
 
     //ScandiCraft: BriceFab
-    //Blocks
     SCANDIUM_ORE(2500),
     SCANDIUM_BLOCK(2501),
     PYRITE_ORE(2502),
@@ -466,50 +465,6 @@ public enum Material {
     LAZURITE_ORE(2504),
     LAZURITE_BLOCK(2505),
 
-    //Items
-    SCANDIUM(3500),
-    PYRITE(3501),
-    LAZURITE(3502),
-
-    SCANDIUM_SWORD(3503, 1, 1561),  //TODO ScandiCraft BriceFab set correct dura
-    SCANDIUM_SPADE(3504, 1, 1561),   //shovel
-    SCANDIUM_PICKAXE(3505, 1, 1561),
-    SCANDIUM_AXE(3506, 1, 1561),
-    SCANDIUM_HOE(3507, 1, 1561),
-    PYRITE_SWORD(3508, 1, 1561),  //TODO ScandiCraft BriceFab set correct dura
-    PYRITE_SPADE(3509, 1, 1561),   //shovel
-    PYRITE_PICKAXE(3510, 1, 1561),
-    PYRITE_AXE(3511, 1, 1561),
-    PYRITE_HOE(3512, 1, 1561),
-    LAZURITE_SWORD(3513, 1, 1561),  //TODO ScandiCraft BriceFab set correct dura
-    LAZURITE_SPADE(3514, 1, 1561),   //shovel
-    LAZURITE_PICKAXE(3515, 1, 1561),
-    LAZURITE_AXE(3516, 1, 1561),
-    LAZURITE_HOE(3517, 1, 1561),
-
-    PYRITE_PIE(3518),
-
-    SCANDIUM_HELMET(3519, 1, 363),   //TODO correct dura
-    SCANDIUM_CHESTPLATE(3520, 1, 528),
-    SCANDIUM_LEGGINGS(3521, 1, 495),
-    SCANDIUM_BOOTS(3522, 1, 429),
-    PYRITE_HELMET(3523, 1, 363),   //TODO correct dura
-    PYRITE_CHESTPLATE(3524, 1, 528),
-    PYRITE_LEGGINGS(3525, 1, 495),
-    PYRITE_BOOTS(3526, 1, 429),
-    LAZURITE_HELMET(3527, 1, 363),   //TODO correct dura
-    LAZURITE_CHESTPLATE(3528, 1, 528),
-    LAZURITE_LEGGINGS(3529, 1, 495),
-    LAZURITE_BOOTS(3530, 1, 429),
-
-    BLOODY_SWORD(3531, 1, 363),   //TODO correct dura
-    BLOODY_HELMET(3532, 1, 363),
-    BLOODY_CHESTPLATE(3533, 1, 528),
-    BLOODY_LEGGINGS(3534, 1, 495),
-    BLOODY_BOOTS(3535, 1, 429),
-
-    SCEPTER_CREEPER(3536),
-    SCEPTER_REPAIR(3547),
     //==============================================================================
     ;
 
