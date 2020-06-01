@@ -487,7 +487,7 @@ public enum Material {
     LAZURITE_AXE(3516, 1, 1561),
     LAZURITE_HOE(3517, 1, 1561),
 
-    // PYRITE_PIE(3518),
+    PYRITE_PIE(3518),
 
     SCANDIUM_HELMET(3519, 1, 363),   //TODO correct dura
     SCANDIUM_CHESTPLATE(3520, 1, 528),
@@ -508,8 +508,8 @@ public enum Material {
     BLOODY_LEGGINGS(3534, 1, 495),
     BLOODY_BOOTS(3535, 1, 429),
 
-    // SCEPTER_CREEPER(3536),
-    SCEPTER_REPAIR(3537, 1, 100),   //TODO correct dura
+    SCEPTER_CREEPER(3536),
+    SCEPTER_REPAIR(3547),
     //==============================================================================
     ;
 
