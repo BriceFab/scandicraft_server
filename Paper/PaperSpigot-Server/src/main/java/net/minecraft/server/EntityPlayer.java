@@ -4,10 +4,17 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.mojang.authlib.GameProfile;
 import io.netty.buffer.Unpooled;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+// CraftBukkit start
 import org.bukkit.Bukkit;
-import org.bukkit.Effect;
 import org.bukkit.WeatherType;
 import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.craftbukkit.entity.CraftPlayer;
@@ -15,12 +22,6 @@ import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.craftbukkit.inventory.CraftItemStack;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
-import org.bukkit.potion.Potion;
-import org.bukkit.potion.PotionEffect;
-
-import java.util.*;
-
-// CraftBukkit start
 // CraftBukkit end
 
 public class EntityPlayer extends EntityHuman implements ICrafting {
@@ -67,12 +68,14 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
     private int containerUpdateDelay; // PaperSpigot
 
     @Override
-    public boolean ad() {
+    public boolean ad()
+    {
         return this.collidesWithEntities && super.ad(); // (first !this.isDead near bottom of EntityLiving)
     }
 
     @Override
-    public boolean ae() {
+    public boolean ae()
+    {
         return this.collidesWithEntities && super.ae(); // (second !this.isDead near bottom of EntityLiving)
     }
     // Spigot end
@@ -195,7 +198,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
         if (this.noDamageTicks > 0) {
             --this.noDamageTicks;
         }
-
+        
         // PaperSpigot start - Configurable container update tick rate
         if (--containerUpdateDelay <= 0) {
             this.activeContainer.b();
@@ -285,7 +288,6 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 
     }
 
-    //ScandiCraft : UZApocalyps client equivalent : EntityPlayerMP -> OnUpdateEntity
     public void l() {
         try {
             super.t_();
@@ -318,7 +320,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
                 while (iterator.hasNext()) {
                     ScoreboardObjective scoreboardobjective = (ScoreboardObjective) iterator.next();
 
-                    this.getScoreboard().getPlayerScoreForObjective(this.getName(), scoreboardobjective).updateForList(Arrays.asList(new EntityHuman[]{this}));
+                    this.getScoreboard().getPlayerScoreForObjective(this.getName(), scoreboardobjective).updateForList(Arrays.asList(new EntityHuman[] { this}));
                 }
                 // CraftBukkit - Update ALL the scores!
                 this.world.getServer().getScoreboardManager().updateAllScoresForList(IScoreboardCriteria.g, this.getName(), com.google.common.collect.ImmutableList.of(this));
@@ -337,26 +339,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
             if (this.ticksLived % 20 * 5 == 0 && !this.getStatisticManager().hasAchievement(AchievementList.L)) {
                 this.i_();
             }
-            if (this.ticksLived % 60 >= 0) {
-                EntityPlayer player = (EntityPlayer) this;
-                ItemStack helmet = player.getEquipment(4);
-                ItemStack leggings = player.getEquipment(2);
-                ItemStack boots = player.getEquipment(1);
 
-                //ScandiCraft : UZApocalyps effet sur les armures de sang
-                if (helmet != null && helmet.getItem().equals(Items.BLOODY_HELMET)) {
-                    player.setAirTicks(280);
-                }
-                if (leggings != null && leggings.getItem().equals(Items.BLOODY_LEGGINGS)) {
-                    MobEffect actPotionSpeed = player.getEffect(MobEffectList.FASTER_MOVEMENT);
-                    if (actPotionSpeed == null) {
-                          player.addEffect(new MobEffect(MobEffectList.FASTER_MOVEMENT.id, 100));
-                    }
-                }
-                if (boots != null && boots.getItem().equals(Items.BLOODY_BOOTS)) {
-                    player.fallDistance = 0;
-                }
-            }
             // CraftBukkit start - initialize oldLevel and fire PlayerLevelChangeEvent
             if (this.oldLevel == -1) {
                 this.oldLevel = this.expLevel;
@@ -488,26 +471,6 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
             entityliving.b(this, this.aW);
         }
 
-
-        //ScandiCraft : UZAPocalyps
-        if (this instanceof EntityPlayer && damagesource.getEntity() instanceof EntityPlayer) {
-
-            EntityPlayer actualPlayer = (EntityPlayer) damagesource.getEntity();
-            ItemStack chestplate = actualPlayer.getEquipment(3);
-
-            if (chestplate.getItem().equals(Items.BLOODY_CHESTPLATE)) {
-                //10 = 10 demi-coeurs = 5 coeurs
-                if (actualPlayer.getHealth() + 10 > actualPlayer.getMaxHealth()) {
-                    actualPlayer.setHealth(actualPlayer.getMaxHealth());
-                } else {
-                    actualPlayer.setHealth(actualPlayer.getHealth() + 10);
-                }
-
-            }
-
-
-        }
-
         this.b(StatisticList.y);
         this.a(StatisticList.h);
         this.bs().g();
@@ -562,7 +525,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
                 this.viewingCredits = true;
                 this.playerConnection.sendPacket(new PacketPlayOutGameStateChange(4, 0.0F));
             }
-            // PaperSpigot end
+        // PaperSpigot end
         } else {
             if (this.dimension == 0 && i == 1) {
                 this.b((Statistic) AchievementList.C);
@@ -654,8 +617,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 
     }
 
-    protected void a(double d0, boolean flag, Block block, BlockPosition blockposition) {
-    }
+    protected void a(double d0, boolean flag, Block block, BlockPosition blockposition) {}
 
     public void a(double d0, boolean flag) {
         int i = MathHelper.floor(this.locX);
@@ -711,7 +673,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 
         Container container;
         if (iinventory instanceof ITileEntityContainer) {
-            container = ((ITileEntityContainer) iinventory).createContainer(this.inventory, this);
+            container = ((ITileEntityContainer)iinventory).createContainer(this.inventory, this);
         } else {
             container = new ContainerChest(this.inventory, iinventory, this);
         }
@@ -729,7 +691,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
             ITileInventory itileinventory = (ITileInventory) iinventory;
 
             if (itileinventory.r_() && !this.a(itileinventory.i()) && !this.isSpectator() && container == null) { // CraftBukkit - allow plugins to uncancel the lock
-                this.playerConnection.sendPacket(new PacketPlayOutChat(new ChatMessage("container.isLocked", new Object[]{iinventory.getScoreboardDisplayName()}), (byte) 2));
+                this.playerConnection.sendPacket(new PacketPlayOutChat(new ChatMessage("container.isLocked", new Object[] { iinventory.getScoreboardDisplayName()}), (byte) 2));
                 this.playerConnection.sendPacket(new PacketPlayOutNamedSoundEffect("random.door_close", this.locX, this.locY, this.locZ, 1.0F, 1.0F));
 
                 iinventory.closeContainer(this); // CraftBukkit
@@ -821,7 +783,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
         this.playerConnection.sendPacket(new PacketPlayOutWindowItems(container.windowId, list));
         this.playerConnection.sendPacket(new PacketPlayOutSetSlot(-1, -1, this.inventory.getCarried()));
         // CraftBukkit start - Send a Set Slot to update the crafting result slot
-        if (java.util.EnumSet.of(InventoryType.CRAFTING, InventoryType.WORKBENCH).contains(container.getBukkitView().getType())) {
+        if (java.util.EnumSet.of(InventoryType.CRAFTING,InventoryType.WORKBENCH).contains(container.getBukkitView().getType())) {
             this.playerConnection.sendPacket(new PacketPlayOutSetSlot(container.windowId, 0, container.getSlot(0).getItem()));
         }
         // CraftBukkit end
@@ -1084,7 +1046,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 
     public void d(Entity entity) {
         if (entity instanceof EntityHuman) {
-            this.playerConnection.sendPacket(new PacketPlayOutEntityDestroy(new int[]{entity.getId()}));
+            this.playerConnection.sendPacket(new PacketPlayOutEntityDestroy(new int[] { entity.getId()}));
         } else {
             this.removeQueue.add(Integer.valueOf(entity.getId()));
         }
