@@ -861,11 +861,11 @@ public class Item {
         a(3505, "scandium_pickaxe", (new ItemPickaxe(EnumToolMaterial.SCANDIUM)).c("pickaxeScandium"));
         a(3506, "scandium_axe", (new ItemAxe(EnumToolMaterial.SCANDIUM)).c("hatchetScandium"));
         a(3507, "scandium_hoe", (new ItemHoe(EnumToolMaterial.SCANDIUM)).c("hoeScandium"));
-        a(3508, "pyrite_sword", (new ItemSword(EnumToolMaterial.PYRITE)).c("swordPyrite"));
-        a(3509, "pyrite_shovel", (new ItemSpade(EnumToolMaterial.PYRITE)).c("shovelPyrite"));
-        a(3510, "pyrite_pickaxe", (new ItemPickaxe(EnumToolMaterial.PYRITE)).c("pickaxePyrite"));
-        a(3511, "pyrite_axe", (new ItemAxe(EnumToolMaterial.PYRITE)).c("hatchetPyrite"));
-        a(3512, "pyrite_hoe", (new ItemHoe(EnumToolMaterial.PYRITE)).c("hoePyrite"));
+        a(3508, "pyrite_sword", (new ItemSword(EnumToolMaterial.PYRITE)).c("swordpyrite"));
+        a(3509, "pyrite_shovel", (new ItemSpade(EnumToolMaterial.PYRITE)).c("shovelpyrite"));
+        a(3510, "pyrite_pickaxe", (new ItemPickaxe(EnumToolMaterial.PYRITE)).c("pickaxepyrite"));
+        a(3511, "pyrite_axe", (new ItemAxe(EnumToolMaterial.PYRITE)).c("hatchetpyrite"));
+        a(3512, "pyrite_hoe", (new ItemHoe(EnumToolMaterial.PYRITE)).c("hoepyrite"));
         a(3513, "lazurite_sword", (new ItemSword(EnumToolMaterial.LAZURITE)).c("swordLazurite"));
         a(3514, "lazurite_shovel", (new ItemSpade(EnumToolMaterial.LAZURITE)).c("shovelLazurite"));
         a(3515, "lazurite_pickaxe", (new ItemPickaxe(EnumToolMaterial.LAZURITE)).c("pickaxeLazurite"));
