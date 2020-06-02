@@ -17,7 +17,7 @@ public class ScepterFalling extends Item {
         }
 
         //20 ticks = 1 seconde
-//        playerIn.addPotionEffect(new MobEffect(MobEffectList.feather_falling.id, MathUtils.convertMinutesToTicks(5)));    //5 mn
+        playerIn.addPotionEffect(new MobEffect(MobEffectList.FEATHER_FALLING.id, MathUtils.convertMinutesToTicks(5)));    //5 mn
 
         return itemStackIn;
     }
