@@ -1,11 +1,12 @@
 package net.minecraft.server;
 
-import java.util.List;
-
-// CraftBukkit start
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.EntityCombustByEntityEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
+
+import java.util.List;
+
+// CraftBukkit start
 // CraftBukkit end
 
 public class EntityArrow extends Entity implements IProjectile {
@@ -26,10 +27,8 @@ public class EntityArrow extends Entity implements IProjectile {
 
     // Spigot Start
     @Override
-    public void inactiveTick()
-    {
-        if ( this.inGround )
-        {
+    public void inactiveTick() {
+        if (this.inGround) {
             this.ar += 1; // Despawn counter. First int after shooter
         }
         super.inactiveTick();
@@ -248,16 +247,16 @@ public class EntityArrow extends Entity implements IProjectile {
 
                     // CraftBukkit start - Moved damage call
                     if (movingobjectposition.entity.damageEntity(damagesource, (float) k)) {
-                    if (this.isBurning() && !(movingobjectposition.entity instanceof EntityEnderman) && (!(movingobjectposition.entity instanceof EntityPlayer) || !(this.shooter instanceof EntityPlayer) || this.world.pvpMode)) { // CraftBukkit - abide by pvp setting if destination is a player
-                        EntityCombustByEntityEvent combustEvent = new EntityCombustByEntityEvent(this.getBukkitEntity(), entity.getBukkitEntity(), 5);
-                        org.bukkit.Bukkit.getPluginManager().callEvent(combustEvent);
-                        if (!combustEvent.isCancelled()) {
-                            movingobjectposition.entity.setOnFire(combustEvent.getDuration());
+                        if (this.isBurning() && !(movingobjectposition.entity instanceof EntityEnderman) && (!(movingobjectposition.entity instanceof EntityPlayer) || !(this.shooter instanceof EntityPlayer) || this.world.pvpMode)) { // CraftBukkit - abide by pvp setting if destination is a player
+                            EntityCombustByEntityEvent combustEvent = new EntityCombustByEntityEvent(this.getBukkitEntity(), entity.getBukkitEntity(), 5);
+                            org.bukkit.Bukkit.getPluginManager().callEvent(combustEvent);
+                            if (!combustEvent.isCancelled()) {
+                                movingobjectposition.entity.setOnFire(combustEvent.getDuration());
+                            }
+                            // CraftBukkit end
                         }
-                        // CraftBukkit end
-                    }
 
-                    // if (movingobjectposition.entity.damageEntity(damagesource, (float) k)) { // CraftBukkit - moved up
+                        // if (movingobjectposition.entity.damageEntity(damagesource, (float) k)) { // CraftBukkit - moved up
                         if (movingobjectposition.entity instanceof EntityLiving) {
                             EntityLiving entityliving = (EntityLiving) movingobjectposition.entity;
 
@@ -494,4 +493,14 @@ public class EntityArrow extends Entity implements IProjectile {
         return inGround;
     }
     // CraftBukkit end
+
+    /* ScandiCraft */
+    public void setDamage(double damage) {
+        this.b(damage);
+    }
+
+    public double getDamage() {
+        return this.j();
+    }
+
 }

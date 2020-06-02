@@ -3,23 +3,20 @@ package net.minecraft.server;
 import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
 import com.mojang.authlib.GameProfile;
+import org.bukkit.craftbukkit.entity.CraftHumanEntity;
+import org.bukkit.craftbukkit.entity.CraftItem;
+import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityCombustByEntityEvent;
+import org.bukkit.event.player.*;
+import org.bukkit.util.Vector;
+
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
 // CraftBukkit start
-import org.bukkit.craftbukkit.entity.CraftHumanEntity;
-import org.bukkit.craftbukkit.entity.CraftItem;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
-import org.bukkit.entity.Player;
-import org.bukkit.event.entity.EntityCombustByEntityEvent;
-import org.bukkit.event.player.PlayerBedEnterEvent;
-import org.bukkit.event.player.PlayerBedLeaveEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerItemConsumeEvent;
-import org.bukkit.event.player.PlayerVelocityEvent;
-import org.bukkit.util.Vector;
 // CraftBukkit end
 
 public abstract class EntityHuman extends EntityLiving {
@@ -276,9 +273,9 @@ public abstract class EntityHuman extends EntityLiving {
                 vec3d1 = vec3d1.b(-this.yaw * 3.1415927F / 180.0F);
                 vec3d1 = vec3d1.add(this.locX, this.locY + (double) this.getHeadHeight(), this.locZ);
                 if (itemstack.usesData()) {
-                    this.world.addParticle(EnumParticle.ITEM_CRACK, vec3d1.a, vec3d1.b, vec3d1.c, vec3d.a, vec3d.b + 0.05D, vec3d.c, new int[] { Item.getId(itemstack.getItem()), itemstack.getData()});
+                    this.world.addParticle(EnumParticle.ITEM_CRACK, vec3d1.a, vec3d1.b, vec3d1.c, vec3d.a, vec3d.b + 0.05D, vec3d.c, new int[]{Item.getId(itemstack.getItem()), itemstack.getData()});
                 } else {
-                    this.world.addParticle(EnumParticle.ITEM_CRACK, vec3d1.a, vec3d1.b, vec3d1.c, vec3d.a, vec3d.b + 0.05D, vec3d.c, new int[] { Item.getId(itemstack.getItem())});
+                    this.world.addParticle(EnumParticle.ITEM_CRACK, vec3d1.a, vec3d1.b, vec3d1.c, vec3d.a, vec3d.b + 0.05D, vec3d.c, new int[]{Item.getId(itemstack.getItem())});
                 }
             }
 
@@ -320,7 +317,7 @@ public abstract class EntityHuman extends EntityLiving {
                 return;
             }
             // CraftBukkit end
-            
+
             ItemStack itemstack = this.g.b(this.world, this);
 
             if (itemstack != this.g || itemstack != null && itemstack.count != i) {
@@ -405,7 +402,7 @@ public abstract class EntityHuman extends EntityLiving {
 
         this.k((float) attributeinstance.getValue());
         float f = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
-        float f1 = (float) ( org.bukkit.craftbukkit.TrigMath.atan(-this.motY * 0.20000000298023224D) * 15.0D); // CraftBukkit
+        float f1 = (float) (org.bukkit.craftbukkit.TrigMath.atan(-this.motY * 0.20000000298023224D) * 15.0D); // CraftBukkit
 
         if (f > 0.1F) {
             f = 0.1F;
@@ -433,13 +430,13 @@ public abstract class EntityHuman extends EntityLiving {
             List list = this.world.getEntities(this, axisalignedbb);
 
             if (this.ae()) { // Spigot: Add this.ae() condition (second !this.isDead near bottom of EntityLiving)
-            for (int i = 0; i < list.size(); ++i) {
-                Entity entity = (Entity) list.get(i);
+                for (int i = 0; i < list.size(); ++i) {
+                    Entity entity = (Entity) list.get(i);
 
-                if (!entity.dead) {
-                    this.d(entity);
+                    if (!entity.dead) {
+                        this.d(entity);
+                    }
                 }
-            }
             } // Spigot 
         }
 
@@ -651,21 +648,21 @@ public abstract class EntityHuman extends EntityLiving {
             float f1 = 1.0F;
 
             switch (this.getEffect(MobEffectList.SLOWER_DIG).getAmplifier()) {
-            case 0:
-                f1 = 0.3F;
-                break;
+                case 0:
+                    f1 = 0.3F;
+                    break;
 
-            case 1:
-                f1 = 0.09F;
-                break;
+                case 1:
+                    f1 = 0.09F;
+                    break;
 
-            case 2:
-                f1 = 0.0027F;
-                break;
+                case 2:
+                    f1 = 0.0027F;
+                    break;
 
-            case 3:
-            default:
-                f1 = 8.1E-4F;
+                case 3:
+                default:
+                    f1 = 8.1E-4F;
             }
 
             f *= f1;
@@ -886,19 +883,26 @@ public abstract class EntityHuman extends EntityLiving {
         return false; // CraftBukkit
     }
 
-    public void openSign(TileEntitySign tileentitysign) {}
+    public void openSign(TileEntitySign tileentitysign) {
+    }
 
-    public void a(CommandBlockListenerAbstract commandblocklistenerabstract) {}
+    public void a(CommandBlockListenerAbstract commandblocklistenerabstract) {
+    }
 
-    public void openTrade(IMerchant imerchant) {}
+    public void openTrade(IMerchant imerchant) {
+    }
 
-    public void openContainer(IInventory iinventory) {}
+    public void openContainer(IInventory iinventory) {
+    }
 
-    public void openHorseInventory(EntityHorse entityhorse, IInventory iinventory) {}
+    public void openHorseInventory(EntityHorse entityhorse, IInventory iinventory) {
+    }
 
-    public void openTileEntity(ITileEntityContainer itileentitycontainer) {}
+    public void openTileEntity(ITileEntityContainer itileentitycontainer) {
+    }
 
-    public void openBook(ItemStack itemstack) {}
+    public void openBook(ItemStack itemstack) {
+    }
 
     public boolean u(Entity entity) {
         if (this.isSpectator()) {
@@ -1013,7 +1017,7 @@ public abstract class EntityHuman extends EntityLiving {
                             // CraftBukkit start - Add Velocity Event
                             boolean cancelled = false;
                             Player player = (Player) entity.getBukkitEntity();
-                            org.bukkit.util.Vector velocity = new Vector( d0, d1, d2 );
+                            org.bukkit.util.Vector velocity = new Vector(d0, d1, d2);
 
                             PlayerVelocityEvent event = new PlayerVelocityEvent(player, velocity.clone());
                             world.getServer().getPluginManager().callEvent(event);
@@ -1025,7 +1029,7 @@ public abstract class EntityHuman extends EntityLiving {
                             }
 
                             if (!cancelled) {
-                                ( (EntityPlayer) entity ).playerConnection.sendPacket( new PacketPlayOutEntityVelocity( entity ) );
+                                ((EntityPlayer) entity).playerConnection.sendPacket(new PacketPlayOutEntityVelocity(entity));
                                 entity.velocityChanged = false;
                                 entity.motX = d0;
                                 entity.motY = d1;
@@ -1095,9 +1099,11 @@ public abstract class EntityHuman extends EntityLiving {
         }
     }
 
-    public void b(Entity entity) {}
+    public void b(Entity entity) {
+    }
 
-    public void c(Entity entity) {}
+    public void c(Entity entity) {
+    }
 
     public void die() {
         super.die();
@@ -1168,20 +1174,20 @@ public abstract class EntityHuman extends EntityLiving {
             float f1 = 0.5F;
 
             switch (EntityHuman.SyntheticClass_1.a[enumdirection.ordinal()]) {
-            case 1:
-                f1 = 0.9F;
-                break;
+                case 1:
+                    f1 = 0.9F;
+                    break;
 
-            case 2:
-                f1 = 0.1F;
-                break;
+                case 2:
+                    f1 = 0.1F;
+                    break;
 
-            case 3:
-                f = 0.1F;
-                break;
+                case 3:
+                    f = 0.1F;
+                    break;
 
-            case 4:
-                f = 0.9F;
+                case 4:
+                    f = 0.9F;
             }
 
             this.a(enumdirection);
@@ -1205,20 +1211,20 @@ public abstract class EntityHuman extends EntityLiving {
         this.by = 0.0F;
         this.bz = 0.0F;
         switch (EntityHuman.SyntheticClass_1.a[enumdirection.ordinal()]) {
-        case 1:
-            this.bz = -1.8F;
-            break;
+            case 1:
+                this.bz = -1.8F;
+                break;
 
-        case 2:
-            this.bz = 1.8F;
-            break;
+            case 2:
+                this.bz = 1.8F;
+                break;
 
-        case 3:
-            this.by = 1.8F;
-            break;
+            case 3:
+                this.by = 1.8F;
+                break;
 
-        case 4:
-            this.by = -1.8F;
+            case 4:
+                this.by = -1.8F;
         }
 
     }
@@ -1307,7 +1313,8 @@ public abstract class EntityHuman extends EntityLiving {
         return this.sleeping && this.sleepTicks >= 100;
     }
 
-    public void b(IChatBaseComponent ichatbasecomponent) {}
+    public void b(IChatBaseComponent ichatbasecomponent) {
+    }
 
     public BlockPosition getBed() {
         return this.c;
@@ -1334,9 +1341,11 @@ public abstract class EntityHuman extends EntityLiving {
         this.a(statistic, 1);
     }
 
-    public void a(Statistic statistic, int i) {}
+    public void a(Statistic statistic, int i) {
+    }
 
-    public void a(Statistic statistic) {}
+    public void a(Statistic statistic) {
+    }
 
     public void bF() {
         super.bF();
@@ -1632,9 +1641,11 @@ public abstract class EntityHuman extends EntityLiving {
         return !this.abilities.isFlying;
     }
 
-    public void updateAbilities() {}
+    public void updateAbilities() {
+    }
 
-    public void a(WorldSettings.EnumGamemode worldsettings_enumgamemode) {}
+    public void a(WorldSettings.EnumGamemode worldsettings_enumgamemode) {
+    }
 
     public String getName() {
         return this.bH.getName();
@@ -1808,7 +1819,8 @@ public abstract class EntityHuman extends EntityLiving {
 
         OK, NOT_POSSIBLE_HERE, NOT_POSSIBLE_NOW, TOO_FAR_AWAY, OTHER_PROBLEM, NOT_SAFE;
 
-        private EnumBedResult() {}
+        private EnumBedResult() {
+        }
     }
 
     public static enum EnumChatVisibility {
@@ -1843,5 +1855,10 @@ public abstract class EntityHuman extends EntityLiving {
             }
 
         }
+    }
+
+    /* ScandiCraft */
+    public boolean canPlayerEdit(BlockPosition pos, EnumDirection facing, ItemStack stack) {
+        return this.a(pos, facing, stack);
     }
 }

@@ -596,4 +596,9 @@ public class PlayerInventory implements IInventory {
         }
 
     }
+
+    /* ScandiCraft */
+    public boolean hasItem(Item item) {
+        return this.b(item);
+    }
 }

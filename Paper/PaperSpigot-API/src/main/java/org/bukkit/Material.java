@@ -1,63 +1,14 @@
 package org.bukkit;
 
-import java.lang.reflect.Constructor;
-import java.util.Map;
-
+import com.google.common.collect.Maps;
 import org.apache.commons.lang.Validate;
 import org.bukkit.map.MapView;
-import org.bukkit.material.Bed;
-import org.bukkit.material.Button;
-import org.bukkit.material.Cake;
-import org.bukkit.material.Cauldron;
-import org.bukkit.material.Chest;
-import org.bukkit.material.Coal;
-import org.bukkit.material.CocoaPlant;
-import org.bukkit.material.Command;
-import org.bukkit.material.Crops;
-import org.bukkit.material.DetectorRail;
-import org.bukkit.material.Diode;
-import org.bukkit.material.Dispenser;
-import org.bukkit.material.Door;
-import org.bukkit.material.Dye;
-import org.bukkit.material.EnderChest;
-import org.bukkit.material.FlowerPot;
-import org.bukkit.material.Furnace;
-import org.bukkit.material.Gate;
-import org.bukkit.material.Ladder;
-import org.bukkit.material.Lever;
-import org.bukkit.material.LongGrass;
-import org.bukkit.material.MaterialData;
-import org.bukkit.material.MonsterEggs;
-import org.bukkit.material.Mushroom;
-import org.bukkit.material.NetherWarts;
-import org.bukkit.material.PistonBaseMaterial;
-import org.bukkit.material.PistonExtensionMaterial;
-import org.bukkit.material.PoweredRail;
-import org.bukkit.material.PressurePlate;
-import org.bukkit.material.Pumpkin;
-import org.bukkit.material.Rails;
-import org.bukkit.material.RedstoneTorch;
-import org.bukkit.material.RedstoneWire;
-import org.bukkit.material.Sandstone;
-import org.bukkit.material.Sign;
-import org.bukkit.material.Skull;
-import org.bukkit.material.SmoothBrick;
-import org.bukkit.material.SpawnEgg;
-import org.bukkit.material.Stairs;
-import org.bukkit.material.Step;
-import org.bukkit.material.Torch;
-import org.bukkit.material.TrapDoor;
-import org.bukkit.material.Tree;
-import org.bukkit.material.Tripwire;
-import org.bukkit.material.TripwireHook;
-import org.bukkit.material.Vine;
-import org.bukkit.material.WoodenStep;
-import org.bukkit.material.Wool;
+import org.bukkit.material.*;
 import org.bukkit.potion.Potion;
 import org.bukkit.util.Java15Compat;
 
-import com.google.common.collect.Maps;
-import org.bukkit.material.Banner;
+import java.lang.reflect.Constructor;
+import java.util.Map;
 
 /**
  * An enum of all material IDs accepted by the official server and client
@@ -455,6 +406,68 @@ public enum Material {
     RECORD_10(2265, 1),
     RECORD_11(2266, 1),
     RECORD_12(2267, 1),
+    /* ScandiCraft */
+    LAZURITE(3500),
+    //LAZURITE = 1.5x + dura que diams
+    LAZURITE_HELMET(3501, 1, 545),
+    LAZURITE_CHESTPLATE(3502, 1, 792),
+    LAZURITE_LEGGINGS(3503, 1, 743),
+    LAZURITE_BOOTS(3504, 1, 644),
+    LAZURITE_SWORD(3505, 1, 2341),
+    LAZURITE_SHOVEL(3506, 1, 2341),
+    LAZURITE_PICKAXE(3507, 1, 2341),
+    LAZURITE_AXE(3508, 1, 2341),
+    LAZURITE_HOE(3509, 1, 2341),
+    //PYRITE = 2x + dura que diams
+    PYRITE(3510),
+    PYRITE_HELMET(3511, 1, 726),
+    PYRITE_CHESTPLATE(3512, 1, 1056),
+    PYRITE_LEGGINGS(3513, 1, 990),
+    PYRITE_BOOTS(3514, 1, 858),
+    PYRITE_SWORD(3515, 1, 3122),
+    PYRITE_SHOVEL(3516, 1, 3122),
+    PYRITE_PICKAXE(3517, 1, 3122),
+    PYRITE_AXE(3518, 1, 3122),
+    PYRITE_HOE(3519, 1, 3122),
+    //SCANDIUM = 3x + dura que diams
+    SCANDIUM(3520),
+    SCANDIUM_HELMET(3521, 1, 1089),
+    SCANDIUM_CHESTPLATE(3522, 1, 1584),
+    SCANDIUM_LEGGINGS(3523, 1, 1485),
+    SCANDIUM_BOOTS(3524, 1, 1287),
+    SCANDIUM_SWORD(3525, 1, 4500),
+    SCANDIUM_SHOVEL(3526, 1, 4500),
+    SCANDIUM_PICKAXE(3527, 1, 4500),
+    SCANDIUM_AXE(3528, 1, 4500),
+    SCANDIUM_HOE(3529, 1, 4500),
+    SCANDIUM_BOW(3530, 1, 1000),
+    //BLOODY = environ 2x + dura que scandium et constant sur toute l'armure
+    BLOODY_DRIP(3531),
+    BLOODY_SWORD(3532, 1, 5000),
+    BLOODY_HELMET(3533, 1, 2500),
+    BLOODY_CHESTPLATE(3534, 1, 2500),
+    BLOODY_LEGGINGS(3535, 1, 2500),
+    BLOODY_BOOTS(3536, 1, 2500),
+    //ScandiCraft other
+    SCEPTER_CREPPER(3537, 1, 3),
+    SCEPTER_REPAIR(3538, 1, 1),
+    PYRITE_PIE(3539),
+    LAZURITE_BREAD(3540),
+    SCEPTER_FALLING(3541, 1),
+    SCANDIVOTE(3542),
+    SCANDIBOX(3543),
+    //ScandiCraft blocks
+//    LAZURITE_ORE(2500),
+//    LAZURITE_BLOCK(2501),
+//    PYRITE_ORE(2502),
+//    PYRITE_BLOCK(2503),
+//    SCANDIUM_ORE(2504),
+//    SCANDIUM_BLOCK(2505),
+//    PYRITE_CHEST(2506, Pyrite_Chest.class),
+//    LAZURITE_LADDER(2507, Ladder.class),
+//    LIGHT(2508),
+//    DUNGEON_SPAWNER(2509),
+//    RANDOM_ORE(2510)
     ;
 
     private final int id;
@@ -605,6 +618,9 @@ public enum Material {
             case RABBIT_STEW:
             case MUTTON:
             case COOKED_MUTTON:
+                /* ScandiCraft */
+            case LAZURITE_BREAD:
+            case PYRITE_PIE:
                 return true;
             default:
                 return false;
@@ -659,7 +675,8 @@ public enum Material {
 
         try {
             result = getMaterial(Integer.parseInt(name));
-        } catch (NumberFormatException ex) {}
+        } catch (NumberFormatException ex) {
+        }
 
         if (result == null) {
             String filtered = name.toUpperCase();
@@ -850,6 +867,9 @@ public enum Material {
             case JUNGLE_DOOR:
             case ACACIA_DOOR:
             case DARK_OAK_DOOR:
+                /* ScandiCraft */
+//            case LAZURITE_ORE:
+//            case LAZURITE_BLOCK:
                 return true;
             default:
                 return false;

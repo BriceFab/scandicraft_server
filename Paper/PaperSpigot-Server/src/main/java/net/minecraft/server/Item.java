@@ -4,6 +4,7 @@ import com.google.common.base.Function;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
+import net.scandicraft.items.*;
 
 import javax.annotation.Nullable;
 import java.util.Map;
@@ -50,7 +51,11 @@ public class Item {
         STONE(1, 131, 4.0F, 1.0F, 5),
         IRON(2, 250, 6.0F, 2.0F, 14),
         EMERALD(3, 1561, 8.0F, 3.0F, 10),
-        GOLD(0, 32, 12.0F, 0.0F, 22);
+        GOLD(0, 32, 12.0F, 0.0F, 22),
+        LAZURITE(3, 1750, 12.0F, 4.0F, 10),
+        PYRITE(3, 2000, 13.0F, 5.0F, 10),
+        SCANDIUM(3, 2500, 14.0F, 6.0F, 10),
+        BLOODY(3, 3500, 15.0F, 8.0F, 10);
 
         private final int f;
 
@@ -828,6 +833,57 @@ public class Item {
         a(2265, "record_ward", (new ItemRecord("ward")).c("record"));
         a(2266, "record_11", (new ItemRecord("11")).c("record"));
         a(2267, "record_wait", (new ItemRecord("wait")).c("record"));
+
+        /*=== ScandiCraft Items ===*/
+        //Start ID : 3500
+        registerItem(3500, "lazurite", (new Item()).setUnlocalizedName("lazurite").setCreativeTab(CreativeModeTab.tabMaterials));
+        registerItem(3501, "lazurite_helmet", (new ItemArmor(ItemArmor.EnumArmorMaterial.LAZURITE, 9, 0)).setUnlocalizedName("helmetLazurite"));
+        registerItem(3502, "lazurite_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.LAZURITE, 9, 1)).setUnlocalizedName("chestplateLazurite"));
+        registerItem(3503, "lazurite_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.LAZURITE, 9, 2)).setUnlocalizedName("leggingsLazurite"));
+        registerItem(3504, "lazurite_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.LAZURITE, 9, 3)).setUnlocalizedName("bootsLazurite"));
+        registerItem(3505, "lazurite_sword", (new ItemSword(Item.EnumToolMaterial.LAZURITE)).setUnlocalizedName("swordLazurite"));
+        registerItem(3506, "lazurite_shovel", (new ItemSpade(Item.EnumToolMaterial.LAZURITE)).setUnlocalizedName("shovelLazurite"));
+        registerItem(3507, "lazurite_pickaxe", (new ItemPickaxe(Item.EnumToolMaterial.LAZURITE)).setUnlocalizedName("pickaxeLazurite"));
+        registerItem(3508, "lazurite_axe", (new ItemAxe(Item.EnumToolMaterial.LAZURITE)).setUnlocalizedName("hatchetLazurite"));
+        registerItem(3509, "lazurite_hoe", (new ItemHoe(Item.EnumToolMaterial.LAZURITE)).setUnlocalizedName("hoeLazurite"));
+
+        registerItem(3510, "pyrite", (new Item()).setUnlocalizedName("pyrite").setCreativeTab(CreativeModeTab.tabMaterials));
+        registerItem(3511, "pyrite_helmet", (new ItemArmor(ItemArmor.EnumArmorMaterial.PYRITE, 8, 0)).setUnlocalizedName("helmetPyrite"));
+        registerItem(3512, "pyrite_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.PYRITE, 8, 1)).setUnlocalizedName("chestplatePyrite"));
+        registerItem(3513, "pyrite_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.PYRITE, 8, 2)).setUnlocalizedName("leggingsPyrite"));
+        registerItem(3514, "pyrite_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.PYRITE, 8, 3)).setUnlocalizedName("bootsPyrite"));
+        registerItem(3515, "pyrite_sword", (new ItemSword(Item.EnumToolMaterial.PYRITE)).setUnlocalizedName("swordPyrite"));
+        registerItem(3516, "pyrite_shovel", (new ItemSpade(Item.EnumToolMaterial.PYRITE)).setUnlocalizedName("shovelPyrite"));
+        registerItem(3517, "pyrite_pickaxe", (new ItemPickaxe(Item.EnumToolMaterial.PYRITE)).setUnlocalizedName("pickaxePyrite"));
+        registerItem(3518, "pyrite_axe", (new ItemAxe(Item.EnumToolMaterial.PYRITE)).setUnlocalizedName("hatchetPyrite"));
+        registerItem(3519, "pyrite_hoe", (new ItemHoe(Item.EnumToolMaterial.PYRITE)).setUnlocalizedName("hoePyrite"));
+
+        registerItem(3520, "scandium", (new Item()).setUnlocalizedName("scandium").setCreativeTab(CreativeModeTab.tabMaterials));
+        registerItem(3521, "scandium_helmet", (new ItemArmor(ItemArmor.EnumArmorMaterial.SCANDIUM, 7, 0)).setUnlocalizedName("helmetScandium"));
+        registerItem(3522, "scandium_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.SCANDIUM, 7, 1)).setUnlocalizedName("chestplateScandium"));
+        registerItem(3523, "scandium_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.SCANDIUM, 7, 2)).setUnlocalizedName("leggingsScandium"));
+        registerItem(3524, "scandium_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.SCANDIUM, 7, 3)).setUnlocalizedName("bootsScandium"));
+        registerItem(3525, "scandium_sword", (new ItemSword(Item.EnumToolMaterial.SCANDIUM)).setUnlocalizedName("swordScandium"));
+        registerItem(3526, "scandium_shovel", (new ItemSpade(Item.EnumToolMaterial.SCANDIUM)).setUnlocalizedName("shovelScandium"));
+        registerItem(3527, "scandium_pickaxe", (new ItemPickaxe(Item.EnumToolMaterial.SCANDIUM)).setUnlocalizedName("pickaxeScandium"));
+        registerItem(3528, "scandium_axe", (new ItemAxe(Item.EnumToolMaterial.SCANDIUM)).setUnlocalizedName("hatchetScandium"));
+        registerItem(3529, "scandium_hoe", (new ItemHoe(Item.EnumToolMaterial.SCANDIUM)).setUnlocalizedName("hoeScandium"));
+        registerItem(3530, "scandium_bow", (new ScandiumBow()).setUnlocalizedName("scandiumBow"));
+
+        registerItem(3531, "bloody_drip", (new Item()).setUnlocalizedName("dripBloody").setCreativeTab(CreativeModeTab.tabMaterials));
+        registerItem(3532, "bloody_sword", (new ItemSword(Item.EnumToolMaterial.BLOODY)).setUnlocalizedName("swordBloody"));
+        registerItem(3533, "bloody_helmet", (new ItemArmor(ItemArmor.EnumArmorMaterial.BLOODY, 6, 0)).setUnlocalizedName("helmetBloody"));
+        registerItem(3534, "bloody_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.BLOODY, 6, 1)).setUnlocalizedName("chestplateBloody"));
+        registerItem(3535, "bloody_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.BLOODY, 6, 2)).setUnlocalizedName("leggingsBloody"));
+        registerItem(3536, "bloody_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.BLOODY, 6, 3)).setUnlocalizedName("bootsBloody"));
+
+        registerItem(3537, "scepter_creeper", (new ScepterSpawnCreeper(3).setUnlocalizedName("scepterCreeper")));
+        registerItem(3538, "scepter_repair", (new ScepterRepair().setUnlocalizedName("scepterRepair")));
+        registerItem(3539, "pyrite_pie", (new PyritePie(8, 2F)).setAlwaysEdible().setUnlocalizedName("piePyrite").setCreativeTab(CreativeModeTab.tabFood));
+        registerItem(3540, "lazurite_bread", (new LazuriteBread(4, 1.2F)).setAlwaysEdible().setUnlocalizedName("breadLazurite").setCreativeTab(CreativeModeTab.tabFood));
+        registerItem(3541, "scepter_falling", (new ScepterFalling().setUnlocalizedName("scepterFalling")));
+        registerItem(3542, "scandivote", (new Item().setUnlocalizedName("scandiVote").setMaxStackSize(64).setCreativeTab(CreativeModeTab.tabMaterials)));
+        registerItem(3543, "scandibox", (new Item().setUnlocalizedName("scandiBox").setMaxStackSize(64).setCreativeTab(CreativeModeTab.tabMaterials)));
     }
 
     private static void c(Block paramBlock) {
@@ -845,5 +901,34 @@ public class Item {
 
     private static void a(int paramInt, MinecraftKey paramMinecraftKey, Item paramItem) {
         REGISTRY.a(paramInt, paramMinecraftKey, paramItem);
+    }
+
+    /*=== ScandiCraft methods ===*/
+    private static void registerItem(int id, String key, Item item) {
+        a(id, key, item);
+    }
+
+    public Item setUnlocalizedName(String unlocalizedName) {
+        return c(unlocalizedName);
+    }
+
+    public Item setCreativeTab(CreativeModeTab creativeModeTab) {
+        return a(creativeModeTab);
+    }
+
+    public Item setMaxStackSize(int maxStackSize) {
+        return c(maxStackSize);
+    }
+
+    public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityHuman playerIn) {
+        return a(itemStackIn, worldIn, playerIn);
+    }
+
+    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityHuman playerIn) {
+        return b(stack, worldIn, playerIn);
+    }
+
+    public void onPlayerStoppedUsing(ItemStack stack, World world, EntityHuman player, int timeLeft) {
+        this.a(stack, world, player, timeLeft);
     }
 }

@@ -1,15 +1,16 @@
 package net.minecraft.server;
 
 import com.google.common.collect.Maps;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
-import java.util.Map.Entry;
-
-// CraftBukkit start
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.event.entity.EntityRegainHealthEvent.RegainReason;
+
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.UUID;
+
+// CraftBukkit start
 // CraftBukkit end
 
 public class MobEffectList {
@@ -233,5 +234,14 @@ public class MobEffectList {
 
     public double a(int i, AttributeModifier attributemodifier) {
         return attributemodifier.d() * (double) (i + 1);
+    }
+
+    /* ScandiCraft */
+    public MobEffectList setPotionName(String name) {
+        return this.c(name);
+    }
+
+    protected MobEffectList setIconIndex(int x, int y) {
+        return this.b(x, y);
     }
 }

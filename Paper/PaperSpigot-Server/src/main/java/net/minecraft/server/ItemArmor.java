@@ -1,17 +1,18 @@
 package net.minecraft.server;
 
 import com.google.common.base.Predicates;
+import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.event.block.BlockDispenseEvent;
+
 import java.util.List;
 
 // CraftBukkit start
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
-import org.bukkit.event.block.BlockDispenseEvent;
 // CraftBukkit end
 
 public class ItemArmor extends Item {
 
-    private static final int[] k = new int[] { 11, 16, 15, 13};
-    public static final String[] a = new String[] { "minecraft:items/empty_armor_slot_helmet", "minecraft:items/empty_armor_slot_chestplate", "minecraft:items/empty_armor_slot_leggings", "minecraft:items/empty_armor_slot_boots"};
+    private static final int[] k = new int[]{11, 16, 15, 13};
+    public static final String[] a = new String[]{"minecraft:items/empty_armor_slot_helmet", "minecraft:items/empty_armor_slot_chestplate", "minecraft:items/empty_armor_slot_leggings", "minecraft:items/empty_armor_slot_boots"};
     private static final IDispenseBehavior l = new DispenseBehaviorItem() {
         protected ItemStack b(ISourceBlock isourceblock, ItemStack itemstack) {
             BlockPosition blockposition = isourceblock.getBlockPosition().shift(BlockDispenser.b(isourceblock.f()));
@@ -167,7 +168,16 @@ public class ItemArmor extends Item {
 
     public static enum EnumArmorMaterial {
 
-        LEATHER("leather", 5, new int[] { 1, 3, 2, 1}, 15), CHAIN("chainmail", 15, new int[] { 2, 5, 4, 1}, 12), IRON("iron", 15, new int[] { 2, 6, 5, 2}, 9), GOLD("gold", 7, new int[] { 2, 5, 3, 1}, 25), DIAMOND("diamond", 33, new int[] { 3, 8, 6, 3}, 10);
+        LEATHER("leather", 5, new int[]{1, 3, 2, 1}, 15),
+        CHAIN("chainmail", 15, new int[]{2, 5, 4, 1}, 12),
+        IRON("iron", 15, new int[]{2, 6, 5, 2}, 9),
+        GOLD("gold", 7, new int[]{2, 5, 3, 1}, 25),
+        DIAMOND("diamond", 33, new int[]{3, 8, 6, 3}, 10),
+        //ScandiCraft
+        LAZURITE("lazurite", 33, new int[]{4, 9, 7, 4}, 10),
+        PYRITE("pyrite", 33, new int[]{5, 10, 8, 5}, 10),
+        SCANDIUM("scandium", 33, new int[]{6, 11, 9, 6}, 10),
+        BLOODY("bloody", 40, new int[]{8, 13, 11, 8}, 10);
 
         private final String f;
         private final int g;

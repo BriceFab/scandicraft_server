@@ -2,13 +2,6 @@ package net.minecraft.server;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import java.text.DecimalFormat;
-import java.util.Random;
-
-// CraftBukkit start
-import java.util.List;
-import java.util.Map;
-
 import org.bukkit.Location;
 import org.bukkit.TreeType;
 import org.bukkit.block.BlockState;
@@ -16,9 +9,15 @@ import org.bukkit.craftbukkit.block.CraftBlockState;
 import org.bukkit.craftbukkit.util.CraftMagicNumbers;
 import org.bukkit.entity.Player;
 import org.bukkit.event.world.StructureGrowEvent;
-// CraftBukkit end
+import org.github.paperspigot.PaperSpigotConfig;
 
-import org.github.paperspigot.PaperSpigotConfig; // PaperSpigot
+import java.text.DecimalFormat;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
+// CraftBukkit start
+// CraftBukkit end
 
 public final class ItemStack {
 
@@ -290,11 +289,10 @@ public final class ItemStack {
 
     public boolean e() {
         // Spigot Start
-        if ( this.item.getMaxDurability() <= 0 )
-        {
+        if (this.item.getMaxDurability() <= 0) {
             return false;
         }
-        return ( !hasTag() ) || ( !getTag().getBoolean( "Unbreakable" ) );
+        return (!hasTag()) || (!getTag().getBoolean("Unbreakable"));
         // Spigot End
     }
 
@@ -329,7 +327,7 @@ public final class ItemStack {
             // If vanilla doesn't use data on it don't allow any
             if ((PaperSpigotConfig.dataValueAllowedItems == null || !PaperSpigotConfig.dataValueAllowedItems.contains(id)) &&
                     (!(this.usesData() || this.getItem().usesDurability()))) {
-            // PaperSpigot end
+                // PaperSpigot end
                 i = 0;
             }
         }
@@ -379,7 +377,7 @@ public final class ItemStack {
                     i = event.getDamage();
                 }
                 // Spigot end
-                if (i <= 0 ) {
+                if (i <= 0) {
                     return false;
                 }
             }
@@ -759,5 +757,15 @@ public final class ItemStack {
             this.k = false;
             return false;
         }
+    }
+
+    /* ScandiCraft */
+    public boolean isItemDamaged() {
+        return g();
+    }
+
+    public void setItemDamage(int meta)
+    {
+        this.setData(meta);
     }
 }
