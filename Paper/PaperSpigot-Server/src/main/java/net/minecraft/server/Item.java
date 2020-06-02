@@ -834,6 +834,21 @@ public class Item {
         a(2266, "record_11", (new ItemRecord("11")).c("record"));
         a(2267, "record_wait", (new ItemRecord("wait")).c("record"));
 
+        /*=== ScandiCraft Blocks ===*/
+        //Start ID : 2500
+        c(Blocks.lazurite_ore);
+        c(Blocks.lazurite_block);
+        c(Blocks.pyrite_ore);
+        c(Blocks.pyrite_block);
+        c(Blocks.scandium_ore);
+        c(Blocks.scandium_block);
+
+        c(Blocks.pyrite_chest);
+        c(Blocks.lazurite_ladder);
+        c(Blocks.light);
+        c(Blocks.dungeon_spawner);
+        c(Blocks.random_ore);
+
         /*=== ScandiCraft Items ===*/
         //Start ID : 3500
         registerItem(3500, "lazurite", (new Item()).setUnlocalizedName("lazurite").setCreativeTab(CreativeModeTab.tabMaterials));
@@ -918,6 +933,10 @@ public class Item {
 
     public Item setMaxStackSize(int maxStackSize) {
         return c(maxStackSize);
+    }
+
+    private static void registerBlock(Block block) {
+        c(block);
     }
 
 }

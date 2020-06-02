@@ -457,18 +457,17 @@ public enum Material {
     SCANDIVOTE(3542),
     SCANDIBOX(3543),
     //ScandiCraft blocks
-//    LAZURITE_ORE(2500),
-//    LAZURITE_BLOCK(2501),
-//    PYRITE_ORE(2502),
-//    PYRITE_BLOCK(2503),
-//    SCANDIUM_ORE(2504),
-//    SCANDIUM_BLOCK(2505),
-//    PYRITE_CHEST(2506, Pyrite_Chest.class),
-//    LAZURITE_LADDER(2507, Ladder.class),
-//    LIGHT(2508),
-//    DUNGEON_SPAWNER(2509),
-//    RANDOM_ORE(2510)
-    ;
+    LAZURITE_ORE(2500),
+    LAZURITE_BLOCK(2501),
+    PYRITE_ORE(2502),
+    PYRITE_BLOCK(2503),
+    SCANDIUM_ORE(2504),
+    SCANDIUM_BLOCK(2505),
+    PYRITE_CHEST(2506),
+    LAZURITE_LADDER(2507),
+    LIGHT(2508),
+    DUNGEON_SPAWNER(2509),
+    RANDOM_ORE(2510);
 
     private final int id;
     private final Constructor<? extends MaterialData> ctor;
@@ -868,8 +867,15 @@ public enum Material {
             case ACACIA_DOOR:
             case DARK_OAK_DOOR:
                 /* ScandiCraft */
-//            case LAZURITE_ORE:
-//            case LAZURITE_BLOCK:
+            case LAZURITE_ORE:
+            case LAZURITE_BLOCK:
+            case PYRITE_ORE:
+            case PYRITE_BLOCK:
+            case SCANDIUM_ORE:
+            case SCANDIUM_BLOCK:
+            case PYRITE_CHEST:
+            case LAZURITE_LADDER:
+            case RANDOM_ORE:
                 return true;
             default:
                 return false;
@@ -930,6 +936,9 @@ public enum Material {
             case ACTIVATOR_RAIL:
             case CARPET:
             case DOUBLE_PLANT:
+                /* ScandiCraft */
+            case LIGHT:
+            case DUNGEON_SPAWNER:
                 return true;
             default:
                 return false;
@@ -1138,6 +1147,14 @@ public enum Material {
             case PRISMARINE:
             case RED_SANDSTONE:
             case DOUBLE_STONE_SLAB2:
+                /* ScandiCraft */
+            case LAZURITE_ORE:
+            case LAZURITE_BLOCK:
+            case PYRITE_ORE:
+            case PYRITE_BLOCK:
+            case SCANDIUM_ORE:
+            case SCANDIUM_BLOCK:
+            case RANDOM_ORE:
                 return true;
             default:
                 return false;

@@ -1,5 +1,8 @@
 package net.minecraft.server;
 
+import net.scandicraft.blocks.PyriteChest;
+import net.scandicraft.blocks.RandomOre;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -67,6 +70,7 @@ public class Block {
     protected boolean isTileEntity;
     // Spigot start
     public co.aikar.timings.Timing timing;
+
     public co.aikar.timings.Timing getTiming() {
         if (timing == null) {
             timing = co.aikar.timings.SpigotTimings.getBlockTiming(this);
@@ -309,22 +313,25 @@ public class Block {
         this.b(world, blockposition, iblockdata, random);
     }
 
-    public void b(World world, BlockPosition blockposition, IBlockData iblockdata, Random random) {}
+    public void b(World world, BlockPosition blockposition, IBlockData iblockdata, Random random) {
+    }
 
-    public void postBreak(World world, BlockPosition blockposition, IBlockData iblockdata) {}
+    public void postBreak(World world, BlockPosition blockposition, IBlockData iblockdata) {
+    }
 
-    public void doPhysics(World world, BlockPosition blockposition, IBlockData iblockdata, Block block) {}
+    public void doPhysics(World world, BlockPosition blockposition, IBlockData iblockdata, Block block) {
+    }
 
     public int a(World world) {
         return 10;
     }
 
     public void onPlace(World world, BlockPosition blockposition, IBlockData iblockdata) {
-        org.spigotmc.AsyncCatcher.catchOp( "block onPlace"); // Spigot
+        org.spigotmc.AsyncCatcher.catchOp("block onPlace"); // Spigot
     }
 
     public void remove(World world, BlockPosition blockposition, IBlockData iblockdata) {
-        org.spigotmc.AsyncCatcher.catchOp( "block remove"); // Spigot
+        org.spigotmc.AsyncCatcher.catchOp("block remove"); // Spigot
     }
 
     public int a(Random random) {
@@ -502,7 +509,8 @@ public class Block {
         return vec3d == null ? false : vec3d.a >= this.minX && vec3d.a <= this.maxX && vec3d.b >= this.minY && vec3d.b <= this.maxY;
     }
 
-    public void wasExploded(World world, BlockPosition blockposition, Explosion explosion) {}
+    public void wasExploded(World world, BlockPosition blockposition, Explosion explosion) {
+    }
 
     public boolean canPlace(World world, BlockPosition blockposition, EnumDirection enumdirection, ItemStack itemstack) {
         return this.canPlace(world, blockposition, enumdirection);
@@ -520,19 +528,22 @@ public class Block {
         return false;
     }
 
-    public void a(World world, BlockPosition blockposition, Entity entity) {}
+    public void a(World world, BlockPosition blockposition, Entity entity) {
+    }
 
     public IBlockData getPlacedState(World world, BlockPosition blockposition, EnumDirection enumdirection, float f, float f1, float f2, int i, EntityLiving entityliving) {
         return this.fromLegacyData(i);
     }
 
-    public void attack(World world, BlockPosition blockposition, EntityHuman entityhuman) {}
+    public void attack(World world, BlockPosition blockposition, EntityHuman entityhuman) {
+    }
 
     public Vec3D a(World world, BlockPosition blockposition, Entity entity, Vec3D vec3d) {
         return vec3d;
     }
 
-    public void updateShape(IBlockAccess iblockaccess, BlockPosition blockposition) {}
+    public void updateShape(IBlockAccess iblockaccess, BlockPosition blockposition) {
+    }
 
     public final double B() {
         return this.minX;
@@ -566,13 +577,15 @@ public class Block {
         return false;
     }
 
-    public void a(World world, BlockPosition blockposition, IBlockData iblockdata, Entity entity) {}
+    public void a(World world, BlockPosition blockposition, IBlockData iblockdata, Entity entity) {
+    }
 
     public int b(IBlockAccess iblockaccess, BlockPosition blockposition, IBlockData iblockdata, EnumDirection enumdirection) {
         return 0;
     }
 
-    public void j() {}
+    public void j() {
+    }
 
     public void a(World world, EntityHuman entityhuman, BlockPosition blockposition, IBlockData iblockdata, TileEntity tileentity) {
         entityhuman.b(StatisticList.MINE_BLOCK_COUNT[getId(this)]);
@@ -610,7 +623,8 @@ public class Block {
         return this.a(random);
     }
 
-    public void postPlace(World world, BlockPosition blockposition, IBlockData iblockdata, EntityLiving entityliving, ItemStack itemstack) {}
+    public void postPlace(World world, BlockPosition blockposition, IBlockData iblockdata, EntityLiving entityliving, ItemStack itemstack) {
+    }
 
     public boolean g() {
         return !this.material.isBuildable() && !this.material.isLiquid();
@@ -663,9 +677,11 @@ public class Block {
         return this;
     }
 
-    public void a(World world, BlockPosition blockposition, IBlockData iblockdata, EntityHuman entityhuman) {}
+    public void a(World world, BlockPosition blockposition, IBlockData iblockdata, EntityHuman entityhuman) {
+    }
 
-    public void k(World world, BlockPosition blockposition) {}
+    public void k(World world, BlockPosition blockposition) {
+    }
 
     public boolean N() {
         return true;
@@ -936,6 +952,22 @@ public class Block {
         a(195, "jungle_door", (new BlockDoor(Material.WOOD)).c(3.0F).a(Block.f).c("doorJungle").K());
         a(196, "acacia_door", (new BlockDoor(Material.WOOD)).c(3.0F).a(Block.f).c("doorAcacia").K());
         a(197, "dark_oak_door", (new BlockDoor(Material.WOOD)).c(3.0F).a(Block.f).c("doorDarkOak").K());
+
+        /* ScandiCraft Blocks */
+        //Start ID 2500
+        registerBlock(2500, "lazurite_ore", (new BlockOre()).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("oreLazurite"));
+        registerBlock(2501, "lazurite_block", (new Block(Material.ORE, MaterialMapColor.diamondColor)).setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal).setUnlocalizedName("blockLazurite").setCreativeTab(CreativeModeTab.tabBlock));
+        registerBlock(2502, "pyrite_ore", (new BlockOre()).setHardness(5.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("orePyrite"));
+        registerBlock(2503, "pyrite_block", (new Block(Material.ORE, MaterialMapColor.diamondColor)).setHardness(8.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal).setUnlocalizedName("blockPyrite").setCreativeTab(CreativeModeTab.tabBlock));
+        registerBlock(2504, "scandium_ore", (new BlockOre()).setHardness(7.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("oreScandium"));
+        registerBlock(2505, "scandium_block", (new Block(Material.ORE, MaterialMapColor.diamondColor)).setHardness(11.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal).setUnlocalizedName("blockScandium").setCreativeTab(CreativeModeTab.tabBlock));
+
+        registerBlock(2506, "pyrite_chest", (new PyriteChest()).setHardness(10F).setStepSound(Block.soundTypePiston).setUnlocalizedName("chestPyrite").setLightLevel(0.5F));
+        registerBlock(2507, "lazurite_ladder", (new BlockLadder()).setHardness(0.4F).setStepSound(Block.soundTypeLadder).setUnlocalizedName("ladderLazurite"));
+        registerBlock(2508, "light", (new BlockAir()).setHardness(10.0F).setLightLevel(1.0F).setUnlocalizedName("light").setCreativeTab(CreativeModeTab.tabBlock));
+        registerBlock(2509, "dungeon_spawner", (new BlockAir()).setHardness(10.0F).setUnlocalizedName("dungeon_spawner").setCreativeTab(CreativeModeTab.tabBlock));
+        registerBlock(2510, "random_ore", (new RandomOre()).setHardness(7.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("oreRandom"));
+
         Block.REGISTRY.a();
         Iterator iterator = Block.REGISTRY.iterator();
 
@@ -1035,4 +1067,38 @@ public class Block {
         return value;
     }
     // Spigot end
+
+    /* ScandiCraft Methods */
+    private static void registerBlock(int id, String key, Block block) {
+        a(id, key, block);
+    }
+
+    protected Block setHardness(float hardness) {
+        return this.c(hardness);
+    }
+
+    protected Block setResistance(float resistance) {
+        return this.b(resistance);
+    }
+
+    protected Block setStepSound(Block.StepSound sound) {
+        return this.a(sound);
+    }
+
+    public Block setUnlocalizedName(String name) {
+        return this.c(name);
+    }
+
+    public Block setCreativeTab(CreativeModeTab creativemodetab) {
+        return this.a(creativemodetab);
+    }
+
+    public Block setLightLevel(float value) {
+        return this.a(value);
+    }
+
+    public static final Block.StepSound soundTypePiston = i;
+    public static final Block.StepSound soundTypeLadder = o;
+    public static final Block.StepSound soundTypeMetal = j;
+
 }

@@ -74,5 +74,7 @@ public abstract class CreativeModeTab {
     public static final CreativeModeTab tabMaterials = l;
     public static final CreativeModeTab tabFood = h;
     public static final CreativeModeTab tabCombat = j;
+    public static final CreativeModeTab tabBlock = b;
+    public static final CreativeModeTab tabDecorations = c;
 
 }

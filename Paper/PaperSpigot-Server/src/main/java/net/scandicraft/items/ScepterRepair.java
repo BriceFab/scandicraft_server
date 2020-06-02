@@ -17,7 +17,6 @@ public class ScepterRepair extends Item {
         if (!playerIn.abilities.canInstantlyBuild) {    //capabilities.isCreativeMode
             --itemStackIn.count;    //stackSize
         }
-//        itemStackIn.damage(1, playerIn);
 
         return itemStackIn;
     }
