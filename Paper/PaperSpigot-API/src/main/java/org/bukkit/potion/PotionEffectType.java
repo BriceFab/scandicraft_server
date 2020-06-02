@@ -126,6 +126,9 @@ public abstract class PotionEffectType {
      */
     public static final PotionEffectType SATURATION = new PotionEffectTypeWrapper(23);
 
+    /* ScandiCraft Potion */
+    public static final PotionEffectType FEATHER_FALLING = new PotionEffectTypeWrapper(24);
+
     private final int id;
 
     protected PotionEffectType(int id) {
@@ -202,7 +205,7 @@ public abstract class PotionEffectType {
         return "PotionEffectType[" + id + ", " + getName() + "]";
     }
 
-    private static final PotionEffectType[] byId = new PotionEffectType[24];
+    private static final PotionEffectType[] byId = new PotionEffectType[25];    //ScandiCraft Potion
     private static final Map<String, PotionEffectType> byName = new HashMap<String, PotionEffectType>();
     // will break on updates.
     private static boolean acceptingNew = true;

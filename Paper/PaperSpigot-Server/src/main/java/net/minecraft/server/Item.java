@@ -920,15 +920,4 @@ public class Item {
         return c(maxStackSize);
     }
 
-    public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityHuman playerIn) {
-        return a(itemStackIn, worldIn, playerIn);
-    }
-
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityHuman playerIn) {
-        return b(stack, worldIn, playerIn);
-    }
-
-    public void onPlayerStoppedUsing(ItemStack stack, World world, EntityHuman player, int timeLeft) {
-        this.a(stack, world, player, timeLeft);
-    }
 }

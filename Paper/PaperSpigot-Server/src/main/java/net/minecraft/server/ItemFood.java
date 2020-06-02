@@ -80,10 +80,6 @@ public class ItemFood extends Item {
     }
 
     /* ScandiCraft */
-    protected void onFoodEaten(ItemStack stack, World worldIn, EntityHuman player) {
-        this.c(stack, worldIn, player);
-    }
-
     public ItemFood setAlwaysEdible() {
         return h();
     }

@@ -11,7 +11,7 @@ public class ScandiumBow extends Item {
         this.setCreativeTab(CreativeModeTab.tabCombat);
     }
 
-    public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityHuman playerIn, int timeLeft) {
+    public void a(ItemStack stack, World worldIn, EntityHuman playerIn, int timeLeft) { //a = onPlayerStoppedUsing
         boolean flag = playerIn.abilities.canInstantlyBuild || EnchantmentManager.getEnchantmentLevel(Enchantment.ARROW_INFINITE.id, stack) > 0;
 
         if (flag || playerIn.inventory.hasItem(Items.ARROW)) {
@@ -86,7 +86,7 @@ public class ScandiumBow extends Item {
      * Called when the player finishes using this Item (E.g. finishes eating.). Not called when the player stops using
      * the Item before the action is complete.
      */
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityHuman playerIn) {
+    public ItemStack b(ItemStack stack, World worldIn, EntityHuman playerIn) {  //b = onItemUseFinish
         return stack;
     }
 

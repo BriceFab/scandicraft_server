@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.event.entity.EntityRegainHealthEvent.RegainReason;
 
+import java.awt.*;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -41,7 +42,7 @@ public class MobEffectList {
     public static final MobEffectList HEALTH_BOOST = (new MobEffectHealthBoost(21, new MinecraftKey("health_boost"), false, 16284963)).c("potion.healthBoost").b(2, 2).a(GenericAttributes.maxHealth, "5D6F0BA2-1186-46AC-B896-C61C5CEE99CC", 4.0D, 0);
     public static final MobEffectList ABSORBTION = (new MobEffectAbsorption(22, new MinecraftKey("absorption"), false, 2445989)).c("potion.absorption").b(2, 2);
     public static final MobEffectList SATURATION = (new InstantMobEffect(23, new MinecraftKey("saturation"), false, 16262179)).c("potion.saturation");
-    public static final MobEffectList z = null;
+    public static final MobEffectList FEATHER_FALLING = (new MobEffectList(24, new MinecraftKey("feather_falling"), false, Color.YELLOW.getRGB())).setIconIndex(3, 2).setPotionName("potion.feather_falling");
     public static final MobEffectList A = null;
     public static final MobEffectList B = null;
     public static final MobEffectList C = null;

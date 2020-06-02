@@ -9,7 +9,7 @@ public class LazuriteBread extends ItemFood {
     }
 
     @Override
-    protected void onFoodEaten(ItemStack stack, World worldIn, EntityHuman player) {
+    protected void c(ItemStack stack, World worldIn, EntityHuman player) {  //c = onFoodEaten
         if (!worldIn.isClientSide) {
             int two_minutes = MathUtils.convertMinutesToTicks(2);
             player.addPotionEffect(new MobEffect(MobEffectList.FASTER_DIG.id, two_minutes)); //haste I: 2mn
@@ -17,7 +17,7 @@ public class LazuriteBread extends ItemFood {
             player.addPotionEffect(new MobEffect(MobEffectList.FASTER_MOVEMENT.id, two_minutes)); //speed I: 2mn
             player.addPotionEffect(new MobEffect(MobEffectList.NIGHT_VISION.id, two_minutes)); //night vision I: 2mn
         } else {
-            super.onFoodEaten(stack, worldIn, player);
+            super.c(stack, worldIn, player);
         }
     }
 }

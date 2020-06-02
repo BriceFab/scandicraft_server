@@ -34,7 +34,6 @@ public class ScepterSpawnCreeper extends Item {
                 }
             }
 
-            //client:
             stack.damage(1, playerIn);
 
             return true;

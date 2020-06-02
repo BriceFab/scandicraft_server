@@ -9,13 +9,15 @@ public class ScepterRepair extends Item {
         this.setMaxStackSize(1);
     }
 
-    public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityHuman playerIn) {
+    @Override
+    public ItemStack a(ItemStack itemStackIn, World worldIn, EntityHuman playerIn) {    //a = onItemRightClick
         repairStuff(playerIn.inventory.items);          //mainInventory
         repairStuff(playerIn.inventory.armor);          //armorInventory
 
         if (!playerIn.abilities.canInstantlyBuild) {    //capabilities.isCreativeMode
             --itemStackIn.count;    //stackSize
         }
+//        itemStackIn.damage(1, playerIn);
 
         return itemStackIn;
     }
