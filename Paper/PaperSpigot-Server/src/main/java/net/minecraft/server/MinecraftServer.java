@@ -34,6 +34,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import javax.imageio.ImageIO;
+
+import net.scandicraft.Config;
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -565,7 +567,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, IAs
                 long i = 0L;
 
                 this.r.setMOTD(new ChatComponentText(this.motd));
-                this.r.setServerInfo(new ServerPing.ServerData("1.8.8", 47));
+                this.r.setServerInfo(new ServerPing.ServerData("1.8.8", Config.HANDSHAKE));
                 this.a(this.r);
 
                 // Spigot start

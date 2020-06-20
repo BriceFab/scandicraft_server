@@ -2,6 +2,7 @@ package net.scandicraft;
 
 public class Config {
     public static final ENVIRONNEMENT ENV = ENVIRONNEMENT.DEV;
+    public static final Integer HANDSHAKE = -20062020;  //real = 47
 
     public enum ENVIRONNEMENT {
         DEV("dev"),

@@ -1,6 +1,8 @@
 package net.minecraft.server;
 
 // CraftBukkit start
+import net.scandicraft.Config;
+
 import java.net.InetAddress;
 import java.util.HashMap;
 // CraftBukkit end
@@ -62,11 +64,11 @@ public class HandshakeListener implements PacketHandshakingInListener {
             }
             // CraftBukkit end
 
-            if (packethandshakinginsetprotocol.b() > 47) {
+            if (packethandshakinginsetprotocol.b() > Config.HANDSHAKE) {
                 chatcomponenttext = new ChatComponentText( java.text.MessageFormat.format( org.spigotmc.SpigotConfig.outdatedServerMessage.replaceAll("'", "''"), "1.8.8" ) ); // Spigot
                 this.b.handle(new PacketLoginOutDisconnect(chatcomponenttext));
                 this.b.close(chatcomponenttext);
-            } else if (packethandshakinginsetprotocol.b() < 47) {
+            } else if (packethandshakinginsetprotocol.b() < Config.HANDSHAKE) {
                 chatcomponenttext = new ChatComponentText( java.text.MessageFormat.format( org.spigotmc.SpigotConfig.outdatedClientMessage.replaceAll("'", "''"), "1.8.8" ) ); // Spigot
                 this.b.handle(new PacketLoginOutDisconnect(chatcomponenttext));
                 this.b.close(chatcomponenttext);
