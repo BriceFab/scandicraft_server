@@ -430,6 +430,7 @@ public class Items {
     public static final Item scandivote = get("scandivote");
     public static final Item scandibox = get("scandibox");
     public static final Item bloody_drip = get("bloody_drip");
+    public static final Item scepter_capacity = get("scepter_capacity");
 
     private static Item get(String paramString) {
         return Item.REGISTRY.get(new MinecraftKey(paramString));

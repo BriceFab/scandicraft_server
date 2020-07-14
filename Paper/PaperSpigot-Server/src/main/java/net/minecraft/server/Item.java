@@ -899,6 +899,7 @@ public class Item {
         registerItem(3541, "scepter_falling", (new ScepterFalling().setUnlocalizedName("scepterFalling")));
         registerItem(3542, "scandivote", (new Item().setUnlocalizedName("scandiVote").setMaxStackSize(64).setCreativeTab(CreativeModeTab.tabMaterials)));
         registerItem(3543, "scandibox", (new Item().setUnlocalizedName("scandiBox").setMaxStackSize(64).setCreativeTab(CreativeModeTab.tabMaterials)));
+        registerItem(3544, "scepter_capacity", (new Item().setUnlocalizedName("scepter_capacity").setMaxStackSize(64).setCreativeTab(CreativeModeTab.tabMaterials)).setFull3D());
     }
 
     private static void c(Block paramBlock) {
@@ -939,4 +940,7 @@ public class Item {
         c(block);
     }
 
+    public Item setFull3D() {
+        return n();
+    }
 }

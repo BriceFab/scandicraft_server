@@ -467,7 +467,8 @@ public enum Material {
     LAZURITE_LADDER(2507),
     LIGHT(2508),
     DUNGEON_SPAWNER(2509),
-    RANDOM_ORE(2510);
+    RANDOM_ORE(2510),
+    SCEPTER_CAPACITY(3544);
 
     private final int id;
     private final Constructor<? extends MaterialData> ctor;
