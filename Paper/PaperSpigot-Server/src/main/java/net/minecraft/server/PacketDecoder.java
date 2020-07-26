@@ -25,18 +25,19 @@ public class PacketDecoder extends ByteToMessageDecoder {
     protected void decode(ChannelHandlerContext var1, ByteBuf var2, List<Object> var3) throws Exception {
         if (var2.readableBytes() != 0) {
             PacketDataSerializer var4 = new PacketDataSerializer(var2);
-            int var5 = Config.ENV == Config.ENVIRONNEMENT.DEV ? var4.e() : new Random().nextInt();  //ScandiCraft packet : prod fake packet id when error
+            int var5 = var4.e();    //packet id
+            int packetId = Config.ENV == Config.ENVIRONNEMENT.DEV ? var4.e() : new Random().nextInt();  //ScandiCraft packet : prod fake packet id when error
             Packet var6 = ((EnumProtocol) var1.channel().attr(NetworkManager.c).get()).a(this.c, var5);
             if (var6 == null) {
-                throw new IOException("Bad packet id " + var5);
+                throw new IOException("Bad packet id " + packetId);
             } else {
                 var6.a(var4);
                 if (var4.readableBytes() > 0) {
-                    throw new IOException("Packet " + ((EnumProtocol) var1.channel().attr(NetworkManager.c).get()).a() + "/" + var5 + " (" + var6.getClass().getSimpleName() + ") was larger than I expected, found " + var4.readableBytes() + " bytes extra whilst reading packet " + var5);
+                    throw new IOException("Packet " + ((EnumProtocol) var1.channel().attr(NetworkManager.c).get()).a() + "/" + packetId + " (" + var6.getClass().getSimpleName() + ") was larger than I expected, found " + var4.readableBytes() + " bytes extra whilst reading packet " + packetId);
                 } else {
                     var3.add(var6);
                     if (a.isDebugEnabled()) {
-                        a.debug(b, " IN: [{}:{}] {}", var1.channel().attr(NetworkManager.c).get(), var5, var6.getClass().getName());
+                        a.debug(b, " IN: [{}:{}] {}", var1.channel().attr(NetworkManager.c).get(), packetId, var6.getClass().getName());
                     }
 
                 }
