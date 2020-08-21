@@ -14,38 +14,39 @@ import java.util.List;
 import java.util.Random;
 
 public class PacketDecoder extends ByteToMessageDecoder {
-    private static final Logger a = LogManager.getLogger();
-    private static final Marker b;
-    private final EnumProtocolDirection c;
 
-    public PacketDecoder(EnumProtocolDirection var1) {
-        this.c = var1;
+    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Marker PACKET_RECEIVED = MarkerManager.getMarker("PACKET_RECEIVED", NetworkManager.b);
+    private final EnumProtocolDirection protocolDirection;
+
+    public PacketDecoder(EnumProtocolDirection enumprotocoldirection) {
+        this.protocolDirection = enumprotocoldirection;
     }
 
-    protected void decode(ChannelHandlerContext var1, ByteBuf var2, List<Object> var3) throws Exception {
-        if (var2.readableBytes() != 0) {
-            PacketDataSerializer var4 = new PacketDataSerializer(var2);
-            int var5 = var4.e();    //packet id
-            int packetId = Config.ENV == Config.ENVIRONNEMENT.DEV ? var4.e() : new Random().nextInt();  //ScandiCraft packet : prod fake packet id when error
-            Packet var6 = ((EnumProtocol) var1.channel().attr(NetworkManager.c).get()).a(this.c, var5);
-            if (var6 == null) {
+    protected void decode(ChannelHandlerContext channelhandlercontext, ByteBuf bytebuf, List<Object> list) throws Exception {
+        if (bytebuf.readableBytes() != 0) {
+            PacketDataSerializer packetdataserializer = new PacketDataSerializer(bytebuf);
+            int packetId = packetdataserializer.e();
+            Packet packet = channelhandlercontext.channel().attr(NetworkManager.c).get().a(this.protocolDirection, packetId);
+
+            if (Config.ENV == Config.ENVIRONNEMENT.PROD) {
+                //fake packet id in prod
+                packetId += new Random().nextInt(50);
+            }
+
+            if (packet == null) {
                 throw new IOException("Bad packet id " + packetId);
             } else {
-                var6.a(var4);
-                if (var4.readableBytes() > 0) {
-                    throw new IOException("Packet " + ((EnumProtocol) var1.channel().attr(NetworkManager.c).get()).a() + "/" + packetId + " (" + var6.getClass().getSimpleName() + ") was larger than I expected, found " + var4.readableBytes() + " bytes extra whilst reading packet " + packetId);
+                packet.a(packetdataserializer);
+                if (packetdataserializer.readableBytes() > 0) {
+                    throw new IOException("Packet " + channelhandlercontext.channel().attr(NetworkManager.c).get().a() + "/" + packetId + " (" + packet.getClass().getSimpleName() + ") was larger than I expected, found " + packetdataserializer.readableBytes() + " bytes extra whilst reading packet " + packetId);
                 } else {
-                    var3.add(var6);
-                    if (a.isDebugEnabled()) {
-                        a.debug(b, " IN: [{}:{}] {}", var1.channel().attr(NetworkManager.c).get(), packetId, var6.getClass().getName());
+                    list.add(packet);
+                    if (PacketDecoder.LOGGER.isDebugEnabled()) {
+                        PacketDecoder.LOGGER.debug(PacketDecoder.PACKET_RECEIVED, " IN: [{}:{}] {}", channelhandlercontext.channel().attr(NetworkManager.c).get(), packetId, packet.getClass().getName());
                     }
-
                 }
             }
         }
-    }
-
-    static {
-        b = MarkerManager.getMarker("PACKET_RECEIVED", NetworkManager.b);
     }
 }
