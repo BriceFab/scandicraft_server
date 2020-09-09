@@ -50,12 +50,12 @@ public class Item {
         WOOD(0, 59, 2.0F, 0.0F, 15),
         STONE(1, 131, 4.0F, 1.0F, 5),
         IRON(2, 250, 6.0F, 2.0F, 14),
-        EMERALD(3, 1561, 8.0F, 3.0F, 10),
+        EMERALD(3, 1561, 8.0F, 3.0F, 10),// = AUSSI DIAMANT
         GOLD(0, 32, 12.0F, 0.0F, 22),
-        LAZURITE(3, 1750, 12.0F, 4.0F, 10),
-        PYRITE(3, 2000, 13.0F, 5.0F, 10),
-        SCANDIUM(3, 2500, 14.0F, 6.0F, 10),
-        BLOODY(3, 3500, 15.0F, 8.0F, 10);
+        LAZURITE(3, 1750, 12.0F, 3.5F, 10),
+        PYRITE(3, 1900, 12.5F, 4.0F, 10),
+        SCANDIUM(4, 2200, 13.0F, 5.0F, 10),
+        BLOODY(4, 2500, 13.0F, 5.0F, 12);
 
         private final int f;
 
@@ -67,12 +67,12 @@ public class Item {
 
         private final int j;
 
-        EnumToolMaterial(int param1Int1, int param1Int2, float param1Float1, float param1Float2, int param1Int3) {
-            this.f = param1Int1;
-            this.g = param1Int2;
-            this.h = param1Float1;
-            this.i = param1Float2;
-            this.j = param1Int3;
+        EnumToolMaterial(int harvestLevel, int maxUses, float efficiency, float damageVsEntity, int enchantability) {
+            this.f = harvestLevel;
+            this.g = maxUses;
+            this.h = efficiency;
+            this.i = damageVsEntity;
+            this.j = enchantability;
         }
 
         public int a() {
@@ -106,6 +106,14 @@ public class Item {
                 return Items.IRON_INGOT;
             if (this == EMERALD)
                 return Items.DIAMOND;
+            if (this == LAZURITE)
+                return Items.lazurite;
+            if (this == PYRITE)
+                return Items.pyrite;
+            if (this == SCANDIUM)
+                return Items.scandium;
+            if (this == BLOODY)
+                return Items.bloody_drip;
             return null;
         }
     }

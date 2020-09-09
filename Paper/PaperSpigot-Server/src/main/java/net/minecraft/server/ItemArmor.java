@@ -166,29 +166,28 @@ public class ItemArmor extends Item {
         return itemstack;
     }
 
-    public static enum EnumArmorMaterial {
+    public enum EnumArmorMaterial {
 
         LEATHER("leather", 5, new int[]{1, 3, 2, 1}, 15),
         CHAIN("chainmail", 15, new int[]{2, 5, 4, 1}, 12),
         IRON("iron", 15, new int[]{2, 6, 5, 2}, 9),
         GOLD("gold", 7, new int[]{2, 5, 3, 1}, 25),
         DIAMOND("diamond", 33, new int[]{3, 8, 6, 3}, 10),
-        //ScandiCraft
-        LAZURITE("lazurite", 33, new int[]{4, 9, 7, 4}, 10),
-        PYRITE("pyrite", 33, new int[]{5, 10, 8, 5}, 10),
-        SCANDIUM("scandium", 33, new int[]{6, 11, 9, 6}, 10),
-        BLOODY("bloody", 40, new int[]{8, 13, 11, 8}, 10);
+        LAZURITE("lazurite", 35, new int[]{4, 8, 6, 4}, 10),
+        PYRITE("pyrite", 45, new int[]{4, 8, 7, 4}, 10),
+        SCANDIUM("scandium", 50, new int[]{5, 9, 8, 5}, 10),
+        BLOODY("bloody", 70, new int[]{5, 9, 8, 5}, 12);
 
         private final String f;
         private final int g;
         private final int[] h;
         private final int i;
 
-        private EnumArmorMaterial(String s, int i, int[] aint, int j) {
-            this.f = s;
-            this.g = i;
-            this.h = aint;
-            this.i = j;
+        EnumArmorMaterial(String name, int maxDamage, int[] reductionAmounts, int enchantability) {
+            this.f = name;
+            this.g = maxDamage;
+            this.h = reductionAmounts;
+            this.i = enchantability;
         }
 
         public int a(int i) {
@@ -204,7 +203,16 @@ public class ItemArmor extends Item {
         }
 
         public Item b() {
-            return this == ItemArmor.EnumArmorMaterial.LEATHER ? Items.LEATHER : (this == ItemArmor.EnumArmorMaterial.CHAIN ? Items.IRON_INGOT : (this == ItemArmor.EnumArmorMaterial.GOLD ? Items.GOLD_INGOT : (this == ItemArmor.EnumArmorMaterial.IRON ? Items.IRON_INGOT : (this == ItemArmor.EnumArmorMaterial.DIAMOND ? Items.DIAMOND : null))));
+            return
+                    this == EnumArmorMaterial.LEATHER ? Items.LEATHER :
+                            (this == ItemArmor.EnumArmorMaterial.CHAIN ? Items.IRON_INGOT :
+                                    (this == ItemArmor.EnumArmorMaterial.GOLD ? Items.GOLD_INGOT :
+                                            (this == ItemArmor.EnumArmorMaterial.IRON ? Items.IRON_INGOT :
+                                                    (this == ItemArmor.EnumArmorMaterial.DIAMOND ? Items.DIAMOND :
+                                                            (this == ItemArmor.EnumArmorMaterial.LAZURITE ? Items.lazurite :
+                                                                    (this == ItemArmor.EnumArmorMaterial.PYRITE ? Items.pyrite :
+                                                                            (this == ItemArmor.EnumArmorMaterial.SCANDIUM ? Items.scandium :
+                                                                                    (this == ItemArmor.EnumArmorMaterial.BLOODY ? Items.bloody_drip : null))))))));
         }
     }
 }
