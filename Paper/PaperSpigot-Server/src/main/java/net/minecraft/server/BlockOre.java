@@ -14,7 +14,15 @@ public class BlockOre extends Block {
     }
 
     public Item getDropType(IBlockData iblockdata, Random random, int i) {
-        return this == Blocks.COAL_ORE ? Items.COAL : (this == Blocks.DIAMOND_ORE ? Items.DIAMOND : (this == Blocks.LAPIS_ORE ? Items.DYE : (this == Blocks.EMERALD_ORE ? Items.EMERALD : (this == Blocks.QUARTZ_ORE ? Items.QUARTZ : Item.getItemOf(this)))));
+        return
+                this == Blocks.COAL_ORE ? Items.COAL :
+                        (this == Blocks.DIAMOND_ORE ? Items.DIAMOND :
+                                (this == Blocks.LAPIS_ORE ? Items.DYE :
+                                        (this == Blocks.EMERALD_ORE ? Items.EMERALD :
+                                                (this == Blocks.lazurite_ore ? Items.lazurite :
+                                                        (this == Blocks.pyrite_ore ? Items.pyrite :
+                                                                (this == Blocks.scandium_ore ? Items.scandium :
+                                                                        (this == Blocks.QUARTZ_ORE ? Items.QUARTZ : Item.getItemOf(this))))))));
     }
 
     public int a(Random random) {
@@ -66,7 +74,7 @@ public class BlockOre extends Block {
 
             if (this == Blocks.COAL_ORE) {
                 j = MathHelper.nextInt(world.random, 0, 2);
-            } else if (this == Blocks.DIAMOND_ORE) {
+            } else if (this == Blocks.DIAMOND_ORE || this == Blocks.lazurite_ore || this == Blocks.pyrite_ore || this == Blocks.scandium_ore) {
                 j = MathHelper.nextInt(world.random, 3, 7);
             } else if (this == Blocks.EMERALD_ORE) {
                 j = MathHelper.nextInt(world.random, 3, 7);

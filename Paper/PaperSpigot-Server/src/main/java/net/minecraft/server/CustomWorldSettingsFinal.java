@@ -96,6 +96,10 @@ public class CustomWorldSettingsFinal {
     public final int scandiumCount;
     public final int scandiumMinHeight;
     public final int scandiumMaxHeight;
+    public final int randomOreSize;
+    public final int randomOreCount;
+    public final int randomOreMinHeight;
+    public final int randomOreMaxHeight;
 
     private CustomWorldSettingsFinal(CustomWorldSettingsFinal.CustomWorldSettings settingsFactory) {
         this.a = settingsFactory.b;
@@ -189,6 +193,10 @@ public class CustomWorldSettingsFinal {
         this.scandiumCount = settingsFactory.scandiumCount;
         this.scandiumMinHeight = settingsFactory.scandiumMinHeight;
         this.scandiumMaxHeight = settingsFactory.scandiumMaxHeight;
+        this.randomOreSize = settingsFactory.randomOreSize;
+        this.randomOreCount = settingsFactory.randomOreCount;
+        this.randomOreMinHeight = settingsFactory.randomOreMinHeight;
+        this.randomOreMaxHeight = settingsFactory.randomOreMaxHeight;
     }
 
     public static class CustomWorldSettingsSerializer implements JsonDeserializer<CustomWorldSettingsFinal.CustomWorldSettings>, JsonSerializer<CustomWorldSettingsFinal.CustomWorldSettings> {
@@ -299,6 +307,10 @@ public class CustomWorldSettingsFinal {
                 settingsFactory.scandiumCount = ChatDeserializer.a(var4, "scandiumCount", settingsFactory.scandiumCount);
                 settingsFactory.scandiumMinHeight = ChatDeserializer.a(var4, "scandiumMinHeight", settingsFactory.scandiumMinHeight);
                 settingsFactory.scandiumMaxHeight = ChatDeserializer.a(var4, "scandiumMaxHeight", settingsFactory.scandiumMaxHeight);
+                settingsFactory.randomOreSize = ChatDeserializer.a(var4, "randomOreSize", settingsFactory.randomOreSize);
+                settingsFactory.randomOreCount = ChatDeserializer.a(var4, "randomOreCount", settingsFactory.randomOreCount);
+                settingsFactory.randomOreMinHeight = ChatDeserializer.a(var4, "randomOreMinHeight", settingsFactory.randomOreMinHeight);
+                settingsFactory.randomOreMaxHeight = ChatDeserializer.a(var4, "randomOreMaxHeight", settingsFactory.randomOreMaxHeight);
             } catch (Exception var7) {
             }
 
@@ -398,6 +410,10 @@ public class CustomWorldSettingsFinal {
             jsonobject.addProperty("scandiumCount", settingsFactory.scandiumCount);
             jsonobject.addProperty("scandiumMinHeight", settingsFactory.scandiumMinHeight);
             jsonobject.addProperty("scandiumMaxHeight", settingsFactory.scandiumMaxHeight);
+            jsonobject.addProperty("randomOreSize", settingsFactory.randomOreSize);
+            jsonobject.addProperty("randomOreCount", settingsFactory.randomOreCount);
+            jsonobject.addProperty("randomOreMinHeight", settingsFactory.randomOreMinHeight);
+            jsonobject.addProperty("randomOreMaxHeight", settingsFactory.randomOreMaxHeight);
             return jsonobject;
         }
 
@@ -507,6 +523,10 @@ public class CustomWorldSettingsFinal {
         public int scandiumCount = 1;
         public int scandiumMinHeight = 5;
         public int scandiumMaxHeight = 12;
+        public int randomOreSize = 6;
+        public int randomOreCount = 1;
+        public int randomOreMinHeight = 0;
+        public int randomOreMaxHeight = 20;
 
         public static CustomWorldSettingsFinal.CustomWorldSettings a(String var0) {
             if (var0.length() == 0) {
@@ -620,6 +640,10 @@ public class CustomWorldSettingsFinal {
             this.scandiumCount = 1;
             this.scandiumMinHeight = 5;
             this.scandiumMaxHeight = 12;
+            this.randomOreSize = 6;
+            this.randomOreCount = 1;
+            this.randomOreMinHeight = 0;
+            this.randomOreMaxHeight = 20;
         }
 
         public boolean equals(Object var1) {
@@ -778,6 +802,14 @@ public class CustomWorldSettingsFinal {
                     return false;
                 } else if (this.scandiumSize != var2.scandiumSize) {
                     return false;
+                } else if (this.randomOreCount != var2.randomOreCount) {
+                    return false;
+                } else if (this.randomOreMaxHeight != var2.randomOreMaxHeight) {
+                    return false;
+                } else if (this.randomOreMinHeight != var2.randomOreMinHeight) {
+                    return false;
+                } else if (this.randomOreSize != var2.randomOreSize) {
+                    return false;
 
                 } else if (this.r != var2.r) {
                     return false;
@@ -907,6 +939,10 @@ public class CustomWorldSettingsFinal {
             this.i = 31 * this.i + this.scandiumCount;
             this.i = 31 * this.i + this.scandiumMinHeight;
             this.i = 31 * this.i + this.scandiumMaxHeight;
+            this.i = 31 * this.i + this.randomOreSize;
+            this.i = 31 * this.i + this.randomOreCount;
+            this.i = 31 * this.i + this.randomOreMinHeight;
+            this.i = 31 * this.i + this.randomOreMaxHeight;
 
             return i;
         }

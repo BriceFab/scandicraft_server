@@ -38,6 +38,7 @@ public class BiomeDecorator {
         this.lazuriteGen = new WorldGenMinable(Blocks.lazurite_ore.getBlockData(), this.d.lazuriteSize);
         this.pyriteGen = new WorldGenMinable(Blocks.pyrite_ore.getBlockData(), this.d.pyriteSize);
         this.scandiumGen = new WorldGenMinable(Blocks.scandium_ore.getBlockData(), this.d.scandiumSize);
+        this.randomOreGen = new WorldGenMinable(Blocks.random_ore.getBlockData(), this.d.randomOreSize);
 
         a(paramBiomeBase);
         this.a = null;
@@ -73,6 +74,7 @@ public class BiomeDecorator {
     protected WorldGenerator lazuriteGen;
     protected WorldGenerator pyriteGen;
     protected WorldGenerator scandiumGen;
+    protected WorldGenerator randomOreGen;
 
     protected WorldGenerator r;
 
@@ -335,5 +337,6 @@ public class BiomeDecorator {
         a(this.d.lazuriteCount, this.lazuriteGen, this.d.lazuriteMinHeight, this.d.lazuriteMaxHeight);
         a(this.d.pyriteCount, this.pyriteGen, this.d.pyriteMinHeight, this.d.pyriteMaxHeight);
         a(this.d.scandiumCount, this.scandiumGen, this.d.scandiumMinHeight, this.d.scandiumMaxHeight);
+        a(this.d.randomOreCount, this.randomOreGen, this.d.randomOreMinHeight, this.d.randomOreMaxHeight);
     }
 }
